@@ -1,0 +1,74 @@
+<h1>COLLISION DETECTION</h1>
+
+<p>Jeff Thompson  </p>
+
+<p>The collision of objects underlies most game experiences and many other user-interfaces (UIs). Baseball bats collide with balls, zombies bump into walls, and Mario lands on platforms and stomps turtles. This book explains the algorithms behind those collisions using basic shapes like circles, rectangles, and lines.</p>
+
+<h2>WHAT YOU SHOULD ALREADY KNOW</h2>
+
+<p>This book's examples are written in <a href="http://www.processing.org">Processing</a>, a wrapper for the Java programming language. While you need little programming experience to use these examples, you should understand how a basic Processing sketch is structured, how to use variables, how to draw shapes and get input from the mouse, and how <code>if/else</code> statements work. It may be helpful to understand using <code>PVector</code> objects to store positions, but we'll cover that a little bit if you haven't used them before. </p>
+
+<p>At the end, we will talk about using collision in object-oriented code. Understanding object-oriented programming will not be required to use this book, but it will be helpful for using these topics in larger projects.</p>
+
+<h2>FUNCTIONS</h2>
+
+<p>You also should understand how to create and use custom <em>functions</em>. If you have never created a function, please read the next section carefully; if you already understand this topic, you can skip ahead.
+A <em>function</em> is a re-usable, self-contained piece of code. Functions are used for operations that you want to use more than once, like checking for collision between two objects.</p>
+
+<p>A function <em>returns</em> (sends back) a variable <em>type</em> (like <code>int</code> or <code>boolean</code>). For example, here's a function that returns the String "Hello!":</p>
+
+<pre><code>String sayHi() {
+    return "Hello!";
+}
+</code></pre>
+
+<p>Note when we declare the function, we list the variable type to be returned. We do something useful, then use the <code>return</code> command to send data back. If the function doesn't return anything (for example, if all it does is draw a rectangle), the type is <code>void</code>. Sound familiar? The <code>setup()</code> and <code>draw()</code> sections of Processing are functions!</p>
+
+<p>Functions can also receive <em>arguments</em>, or parameters that are fed in. An argument is given a type and name (which exists only in the function); multiple arguments are separated by commas. Here's a simple function that adds two numbers:</p>
+
+<pre><code>int sum(int a, int b) {
+    return a + b;
+}
+</code></pre>
+
+<p>All of the examples in this book are functions. They are fed parameters of the objects to be tested (such as position or size). Most return a <code>boolean</code> value whether or not a collision is happening. Sometimes they will return a position (such as the "Line/Line" example) where the collision is taking place.</p>
+
+<h2>FLOATS</h2>
+
+<p>You'll notice throughout this book that we use floating-point variables for all positions. This is for a few reasons. First, it allows more flexibility for later use. Ints can be passed into the functions readily, but the opposite would not be true.</p>
+
+<pre><code>// int to float argument ok
+int a = 1;
+floatFunction(a);
+
+void floatFunction(float f) {
+    // Processing automatically converts to a float
+}
+
+
+// float to int argument not!
+float b = 1;
+intFunction(b);
+
+void intFunction(int i) {
+    // this will cause an error
+}
+</code></pre>
+
+<p>Second, floats give us the ability to measure more precisely, and to move objects more smoothly across the screen. Finally, this smooths the transition from separate X/Y positions to using the <code>PVector</code> class, as the more advanced examples will do. PVectors are built-in as floats, so this ensures our functions can be easily tweaked to work with vectors.</p>
+
+<h2>WHAT'S COVERED HERE?</h2>
+
+<p>This book covers collisions between points, circles, rectangles, lines, polygons, and triangles (and a few bonus functions). Note that these examples are meant to be as readable and easily understood as possible. There are faster, more efficient ways to perform these collisions, but these examples are intended to teach the principles with minimal math :)</p>
+
+<p>Examples include the collision algorithm as a function, followed by an interactive example.</p>
+
+<h2>WHAT'S NOT?</h2>
+
+<p>As with any book, there's a lot more material than could be covered here. Things that aren't covered are mostly left out because the math gets too complicated. Three-dimensional space isn't touched on. Ellipses, which seem like they should be pretty easy, are actually very difficult.</p>
+
+<p>If there's a specific collision not covered, please send an email with a request (or better yet, submit an example!).</p>
+
+<h2>ISSUES WITH THE CODE?</h2>
+
+<p>If you find code that doesn't run correctly, an algorithm that isn't explained quite right, or a typo, please report them at this project's GitHub repository. Click on the <code>Issues</code> tab and fill out the form. Thanks for your help!</p>
