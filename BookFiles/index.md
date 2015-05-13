@@ -5,7 +5,7 @@ The collision of objects underlies most game experiences and many other user-int
 
 
 ## WHAT YOU SHOULD ALREADY KNOW  
-This book's examples are written in Processing, a wrapper for the Java programming language. While you need little programming experience to use these examples, you should understand how a basic Processing sketch is structured, how to use variables, how to draw shapes and get input from the mouse, and how if/else statements work. It may be helpful to understand using `PVector` objects to store positions, but we'll cover that a little bit if you haven't used them before. 
+This book's examples are written in [Processing](http://www.processing.org), a wrapper for the Java programming language. While you need little programming experience to use these examples, you should understand how a basic Processing sketch is structured, how to use variables, how to draw shapes and get input from the mouse, and how `if/else` statements work. It may be helpful to understand using `PVector` objects to store positions, but we'll cover that a little bit if you haven't used them before. 
 
 At the end, we will talk about using collision in object-oriented code. Understanding object-oriented programming will not be required to use this book, but it will be helpful for using these topics in larger projects.
 
