@@ -9,6 +9,7 @@ Moving from Point/Rectangle to two rectangles is easy, but the if statements sta
 Yeah, not so intuitive. A picture will probably help:
 
 
+
 To start, let's test the right edge of `r1`:
 
 	float r1RightEdge = r1x + r1w;
