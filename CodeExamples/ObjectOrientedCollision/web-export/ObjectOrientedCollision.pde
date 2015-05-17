@@ -20,7 +20,9 @@ void setup() {
   
   // generate rectangles in random locations
   for (int i=0; i<rects.length; i++) {
-    rects[i] = new Rectangle(random(width-50), random(height-50), 50,50);
+    float x = int(random(50,width-50)/50) * 50;    // but snap to grid!
+    float y = int(random(50,height-50)/50) * 50;
+    rects[i] = new Rectangle(x,y, 50,50);
   }
 }
 
@@ -67,17 +69,18 @@ class Circle {
 
 
 
-boolean circleRect(float cx, float cy, float r, float sx, float sy, float sw, float sh) {
+// CIRCLE/RECTANGLE
+boolean circleRect(float cx, float cy, float radius, float rx, float ry, float rw, float rh) {
   
   // temporary variables to set edges for testing
   float testX = cx;
   float testY = cy;
   
   // which edge is closest?
-  if (cx < sx)         testX = sx;        // compare to left edge
-  else if (cx > sx+sw) testX = sx+sw;     // right edge
-  if (cy < sy)         testY = sy;        // top edge
-  else if (cy > sy+sh) testY = sy+sh;     // bottom edge
+  if (cx < rx)         testX = rx;        // compare to left edge
+  else if (cx > rx+rw) testX = rx+rw;     // right edge
+  if (cy < ry)         testY = ry;        // top edge
+  else if (cy > ry+rh) testY = ry+rh;     // bottom edge
   
   // get distance from closest edges
   float distX = cx-testX;
@@ -85,7 +88,7 @@ boolean circleRect(float cx, float cy, float r, float sx, float sy, float sw, fl
   float distance = sqrt( (distX*distX) + (distY*distY) );
   
   // if the distance is less than the radius, collision!
-  if (distance <= r) {
+  if (distance <= radius) {
     return true;
   }
   return false;

@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/ */
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/* KEEP SIZES THE SAME, EVEN WITH BORDERS/PADDING */
+*, *:after, *:before {
+	-webkit-box-sizing:	border-box;
+ 	-moz-box-sizing: 	border-box;
+ 	box-sizing: 		border-box;
+}
+
+
+/* BASIC SETUP */
+html, body {
+	background: 		white;
+
+	/* fonts */
+	font-family: 		'Lora', serif;
+	font-size: 			16px;
+	color: 				black;
+}
+
+/* HEADLINES */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 		'Raleway', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 		600;
+}
+h1 {
+	font-size: 			4em;
+	line-height:		1.15em;
+	margin:				0em 0 0.2em 0;
+	text-align:			center;
+}
+h2 {
+	font-size: 			2.0em;
+	line-height:		1.15em;
+	margin-top:			1.1em;
+	margin-bottom: 		0.3em;
+}
+h3 {
+	font-size: 			1.5em;
+	margin:				1.5em 0 0.3em 0;
+}
+h4 {
+	font-size:			1.5em;
+	text-align:			center;
+}
+img + h4 {
+	margin-top:			1.3em;
+}
+
+/* PARAGRAPHS */
+p, figcaption {
+	font-size:			19px;
+	line-height:  		1.4em;
+	padding-bottom:		1.5em;
+}
+h4 + p {
+	margin-top:			1.6em;
+}
+strong {
+	font-weight:  		600;
+}
+em {
+	font-style:			italic;
+	font-size: 			1.01em;
+}
+
+figcaption {
+	font-style:			italic;
+	text-align:			center;
+	margin-top:			-2em;
+}
+
+/* LISTS */
+ul, ol {
+	font-size: 			19px;
+	line-height:		1.4em;
+}
+ul {
+	margin-top:			-1.3em;
+}
+ul li {
+	padding-left:		1.3em;
+	text-indent:		-1.3em;
+}
+ul li:before {
+	padding-right:		0.8em;
+	content: 			'+';
+}
+h3 + ul {
+	margin-top: 		0em;
+}
+
+ol {
+	list-style-type:	decimal;
+	margin-left: 		1em;
+}
+ol li {
+	padding-left:		1.3em;
+	margin-bottom:		1.3em;
+}
+
+/* LINKS */
+a, a:link, a:visited {
+	color: 				black;
+	font-weight: 		600;
+	text-decoration: 	none;
+	background-color:	transparent;
+}
+a:active, a:hover {
+	color:				black;
+	background-color:	rgb(255,255,0);
+}
+a:hover .fa {
+	color: 				rgb(255,150,0);
+	background-color:	transparent !important;
+}
+.url-link {
+	word-wrap: 			break-word;			/* break up long URLs shown onscreen */
+	-ms-word-break: 	break-all;
+	word-break: 		break-all;
+	word-break: 		break-word;
+}
+
+/* CODE */
+pre, code, .prettyprint {
+	font-family: 		Consolas, Menlo, Courier, monospace;
+	line-height: 		1.1em;
+
+	/* wrap code */
+	white-space: 		pre-wrap;       	/* css-3 */
+ 	white-space: 		-moz-pre-wrap;  	/* Mozilla, since 1999 */
+ 	white-space: 		-pre-wrap;      	/* Opera 4-6 */
+ 	white-space: 		-o-pre-wrap;    	/* Opera 7 */
+ 	word-wrap: 			break-word;     	/* Internet Explorer 5.5+ */
+}
+
+/* large code blocks */
+.prettyprint {
+	font-size:			1.2em;
+	background: 		rgb(245,245,245);
+	border: 			1px solid rgb(200,200,200) !important;
+	padding: 			1.2em !important;
+	margin-bottom: 		2em;
+
+	/*max-height: 		300px;
+	overflow: 			scroll;*/
+}
+
+/* inline code */
+code {
+	background: 		rgb(245,245,245);
+	/*padding: 			0.2em 0.4em 0.2em 0.4em;*/
+	padding: 			0.2em 0;
+	font-size: 			85%;
+	color:				rgb(70,70,70);
+}
+.prettyprint .com {
+	color:				rgb(100,100,100);	/* comments */
+}
+code .kwd, code .tag, code .atn {
+	/*font-weight:		bold;*/
+}
+
+/* IMAGES */
+img {
+	width:				100%;
+	height:				auto;
+	border: 			1px solid rgb(200,200,200);
+}
+
+/* LAYOUT ELEMENTS */
+#wrapper {
+	width:				600px;
+	margin: 			4em auto 60px auto;
+}
+
+#tableOfContents {
+	text-align:			center;
+	margin-bottom:		100px;
+}
+#tableOfContents ul {
+	list-style: 		none;
+	font-size:			1.1em;
+}
+
+/* undo other list formatting */
+#tableOfContents ul li {
+	padding:			0;
+	text-indent:  		0;
+}
+#tableOfContents ul li:before {
+	content:			none;
+}
+#tableOfContents li a,
+#tableOfContents li a:link,
+#tableOfContents li a:visited,
+#tableOfContents li a:active,
+#tableOfContents li a:hover {
+	font-weight: 		normal !important;
+}
+
+/* HEADER */
+header {
+	position: 			fixed;
+	width: 				602px;
+	height: 			3.5em;
+	top: 				0;
+	margin: 			0 auto 0 auto;
+	padding: 			1em 0.5em 0 0.5em;
+	background: 		rgba(255,255,255, 0.9);
+}
+#prev {
+	width: 				10%;
+	float: 				left;
+}
+#title {
+	width: 				80%;
+	float: 				left;
+	text-align: 		center;
+}
+#next {
+	width: 				10%;
+	float: 				right;
+	text-align: 		right;
+}
+#next:after {
+	clear: 				both;
+}
+
+
+/* FOOTER */
+footer {
+	margin:				30px 0 60px 0;
+	text-align:			center;
+}
+
+
+/* INTERACTIVE DEMO */
+canvas {
+	display:			block;
+	border:				1px solid rgb(200,200,200);
+	margin-bottom:		1.5em;
+}
+
+
+/* UTILITY */
+.clear {
+	clear: both;
+}
+

@@ -54,7 +54,7 @@ boolean pointRect(float px, float py, float rx, float ry, float rw, float rh) {
   if (px >= rx &&        // right of the left edge AND
       px <= rx + rw &&   // left of the right edge AND
       py >= ry &&        // below the top AND
-      py <= py + rh) {   // above the bottom 
+      py <= ry + rh) {   // above the bottom 
         return true;
   }
   return false;

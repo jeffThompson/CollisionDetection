@@ -35,10 +35,10 @@ void draw() {
   }
 
   // draw the two points
-  stroke(255,0,0);
+  stroke(0,150,255);
   point(targetX, targetY);
   
-  stroke(0);
+  stroke(0,150);
   point(px, py);
 }
 

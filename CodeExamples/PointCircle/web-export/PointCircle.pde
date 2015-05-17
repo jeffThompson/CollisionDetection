@@ -5,12 +5,12 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 
 */
 
-int px =     0;      // point position
-int py =     0;
+float px =     0;      // point position
+float py =     0;
 
-int cx =     300;    // circle center position
-int cy =     200;
-int radius = 100;    // circle's radius
+float cx =     300;    // circle center position
+float cy =     200;
+float radius = 100;    // circle's radius
 
 
 void setup() {
@@ -48,13 +48,17 @@ void draw() {
 }
 
 
-// check if point is inside the circle
-boolean pointCircle(int px, int py, int cx, int cy, int r) {
-  //int distX = px - cx;
-  //int distY = py - cy;
-  //int distance = sqrt( (distX*distX) + (distY*distY) );
-  int distance = dist(px,py, cx,cy);
+// POINT/CIRCLE
+boolean pointCircle(float px, float py, float cx, float cy, float r) {
+  
+  // get distance between the point and circle's center
+  // using the Pythagorean Theorem
+  float distX = px - cx;
+  float distY = py - cy;
+  float distance = sqrt( (distX*distX) + (distY*distY) );
 
+  // if the distance is less than the circle's 
+  // radius the point is inside!
   if (distance <= r) {
     return true;
   }

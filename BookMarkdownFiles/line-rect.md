@@ -1,9 +1,13 @@
-## LINE/RECTANGLE  
-We've actually already covered how to check if a line has hit a rectangle: it's really just four Line/Line collisions, one for each side!
+# LINE/RECTANGLE  
+We've actually already covered how to check if a line has hit a rectangle: it's really just four [Line/Line](line-line.php) collisions, one for each side!
 
-We use the same Line/Line function as the previous example, and test it against all four sides. For example, the left edge of the square starts at `(rx,ry)` and extends down to `ry+rh`:
+For example, the left edge of the square starts at `(rx,ry)` and extends down to `ry+rh`. We can treat that as a line, using the algorithm we made in the last section:
 
 	boolean left =   lineLine(x1,y1,x2,y2, rx,ry, rx,ry+rh);
+
+This can be more easily visualized like this:
+
+![Dividing a rectangle into four lines](images/line-rect.jpg)
 
 We do the same for the other three sides:
 
@@ -12,14 +16,14 @@ We do the same for the other three sides:
   	boolean top =    lineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry);
   	boolean bottom = lineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh);
 
-If any of the above statements are true, the line has hit the rectangle. Here's the full function:
+If *any* of the above statements are true, the line has hit the rectangle.
 
 	if (left || right || top || bottom) {
 		return true;
 	}
 	return false;
 
-A full example is below. Note that the red dots are drawn in the Line/Line function, showing where the line intersects the rectangle. You can delete this from the function if you don't want it drawing them.
+A full example is below. Note that the red dots are drawn in the [Line/Line](line-line.php) function, showing where the line intersects the rectangle. You can delete them from the function if you don't want them in your finished project.
 
 	float x1 = 0;      // points for line (controlled by mouse)
 	float y1 = 0;
@@ -70,7 +74,8 @@ A full example is below. Note that the red dots are drawn in the Line/Line funct
 	  boolean top =    lineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry);
 	  boolean bottom = lineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh);
 	  
-	  // if ANY of the above are true, the line has hit the rectangle
+	  // if ANY of the above are true, the line 
+	  // has hit the rectangle
 	  if (left || right || top || bottom) {
 	    return true;
 	  }
@@ -100,4 +105,8 @@ A full example is below. Note that the red dots are drawn in the Line/Line funct
 	  return false;
 	}
 
-This algorithm can also be used to test line-of-sight. Let's say you have two objects and an obstacle. If you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle. For an example of this, see the ["Line Of Sight" example](https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/InteractionAndGames/LineOfSight/LineOfSight.pde) in my [Processing teaching repository](https://github.com/jeffThompson/ProcessingTeachingSketches).
+This algorithm can also be used to test [line-of-sight](http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29). Let's say you have two objects and an rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.
+
+![An example of line of sight](images/line-of-sight.jpg)
+
+For an example of this in code, see the ["Line Of Sight" example](https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/InteractionAndGames/LineOfSight/LineOfSight.pde) in my [Processing teaching repository](https://github.com/jeffThompson/ProcessingTeachingSketches).

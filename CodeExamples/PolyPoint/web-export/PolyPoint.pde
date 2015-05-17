@@ -37,7 +37,7 @@ void draw() {
   
   // check for collision
   // if hit, change fill color
-  boolean hit = polygonPoint(px,py, vertices);
+  boolean hit = polyPoint(vertices, px,py);
   if (hit) fill(255,150,0);
   else fill(0,150,255);
   
@@ -55,7 +55,8 @@ void draw() {
 }
 
 
-boolean polygonPoint(float px, float py, PVector[] vertices) {
+// POLYGON/POINT
+boolean polyPoint(PVector[] vertices, float px, float py) {
   boolean collision = false;
   
   // go through each of the vertices, plus the next vertex in the list
@@ -73,8 +74,10 @@ boolean polygonPoint(float px, float py, PVector[] vertices) {
     PVector vn = vertices[next];       // n for "next"
     
     // compare position, flip 'collision' variable back and forth
-    if ( ((vc.y > py) != (vn.y > py)) && (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
-      collision = !collision;
+    //((vc.y > py) != (vn.y > py)) &&
+    if ( ((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+         (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
+            collision = !collision;
     }
   }
   return collision;  

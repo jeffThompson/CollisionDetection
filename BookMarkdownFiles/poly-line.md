@@ -1,10 +1,11 @@
-## POLYGON/LINE  
-Checking if a line is hitting a polygon is very much like the Rectangle/Line example. We go through each side of the polygon and do a Line/Line check.
+# POLYGON/LINE  
+Checking if a line is hitting a polygon is very much like the [Rectangle/Line](rect-line.php) example. We go through each side of the polygon and do a [Line/Line](line-line.php) check.
 
-In this example, we make a nice regular polygon with 16 sides (a [hexadecagon](http://en.wikipedia.org/wiki/Hexadecagon)) . The points are stored in an array of PVectors again.
+In this example, we make a nice regular polygon with 16 sides (a [hexadecagon](http://en.wikipedia.org/wiki/Hexadecagon)). The points are stored in an array of PVectors again:
 
 	PVector[] vertices = new PVector[16];
 	
+	// generate a nice, even polygon
 	float angle = TWO_PI / vertices.length;
 	for (int i=0; i<vertices.length; i++) {
 	  float a = angle * i;
@@ -31,7 +32,7 @@ Now we can get the X/Y coordinates of those two points, which form a line:
     float x4 = vertices[next].x;
     float y4 = vertices[next].y;
 
-And we can pass that to a Line/Line collision. If any of the lines hit, we can immediately send back `true`. This saves processing, since there's not need to compute the remaining sides. If we get to the end and haven't had a hit, we return `false`.
+And we can pass that to a [Line/Line](line-line.php) collision. If any of the lines hit, we can immediately send back `true`. This saves processing, since we can skip computing the remaining sides. If we get to the end and haven't had a hit, we return `false`.
 
 	boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
     if (hit) {
@@ -98,7 +99,8 @@ Here's a full example:
 	// POLYGON/LINE
 	boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
 
-	  // go through each of the vertices, plus the next vertex in the list
+	  // go through each of the vertices, plus the next
+	  // vertex in the list
 	  int next = 0;
 	  for (int current=0; current<vertices.length; current++) {
 
@@ -115,7 +117,8 @@ Here's a full example:
 	    float y4 = vertices[next].y;
 
 	    // do a Line/Line comparison
-	    // if true, return 'true' immediately and stop testing (faster)
+	    // if true, return 'true' immediately and
+	    // stop testing (faster)
 	    boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
 	    if (hit) {
 	      return true;

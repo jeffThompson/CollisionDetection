@@ -1,5 +1,7 @@
-## CIRCLE/CIRCLE  
-Point-something collision is fine, but rarely do objects actually occupy a single point in space. Next, we can use the Pythagorean theorem from the previous Point/Circle example to test if two circles are colliding.
+# CIRCLE/CIRCLE  
+Collision with points is fine, but rarely do objects actually occupy a single point in space. Next, we can use the same application of the Pythagorean Theorem from the [Point/Circle](point-circle.php) example to test if two circles are colliding.
+
+First, calculate the distance between the two circle's centers:
 
 	float distX = c1x - c2x;
 	float distY = c1y - c2y;
@@ -12,10 +14,10 @@ To check if they are colliding, we see if the distance between them is less than
 	}
 	return false;
 
-Built into a full example:
+Built into a full example, it looks like this:
 
-	float c1x = 0;      // circle 1 position (controlled by mouse)
-	float c1y = 0;
+	float c1x = 0;      // circle 1 position
+	float c1y = 0;		// (controlled by mouse)
 	float c1r = 30;     // radius
 
 	float c2x = 300;    // circle 2 position
@@ -70,6 +72,9 @@ Built into a full example:
 	  return false;
 	}
 
-Circle/Circle collision can be used to create "bounding circles" around more complex objects. While sacrificing accuracy, this kind of collision detection is very fast and can be a good approximation.
+**Circle/Circle** collision can be used to create "bounding circles" around more complex objects. While sacrificing accuracy, this kind of collision detection is very fast and can be a good approximation.
 
-You may be wondering why we are only talking about circles and not ellipses. It might seem fairly similar, but the math for ellipse collision is actually quite complicated, so it has been left out here. Consider it a great challenge once you master the other collision examples!
+![An example of a bounding circle](images/bounding-circle.jpg)
+<figcaption>While it includes some areas that aren't part of the shape, a circle is a good approximation of this [dodecagon](http://en.wikipedia.org/wiki/Dodecagon)</figcaption>
+
+You may be wondering why we are only talking about circles and not ellipses. It might seem fairly similar, but the math for [ellipse collision is actually quite complicated](http://stackoverflow.com/questions/2945337/how-to-detect-if-an-ellipse-intersectscollides-with-a-circle). Consider it a great challenge once you master the other collision examples!

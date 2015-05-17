@@ -1,24 +1,24 @@
-## POLYGON/POINT  
-Circle and rectangle collisions are great, and often simplifying collision of complex shapes using bounding boxes and circles makes the most sense. But there are times when we have complicated shapes and want more accuracy. Fortunately, while the way we apply them can get a bit complicated, many of the methods used in the remaining examples use ideas we've already covered.
+# POLYGON/POINT  
+Circle and rectangle collisions are great, and often simplifying the collision of complex shapes using bounding boxes and circles makes sense. But there are times when we want more accuracy. Fortunately, most of the remaining examples use ideas we've already covered, even if how we apply them gets more complicated.
 
-In this example, we'll check if a point is inside a complex polygon. We define our polygon using a set of X/Y points called *vertices*. To store these points, we'll use an array of `PVector` objects. If you haven't used PVectors before, they simply store X/Y (or X/Y/Z) coordinates. This makes storing points a little easier, and Processing gives us some fancy math for PVectors that would be tricky otherwise.
+In this first example, we'll check if a point is inside a complex polygon. We define our polygon using a set of X/Y points called *vertices*. To store these points, we'll use an array of `PVector` objects. PVectors simply store X/Y (or X/Y/Z) coordinates. This makes storing points a little easier, and Processing gives us some fancy math for PVectors that would be tricky otherwise. If you haven't used PVectors before, read at least the first part of [this tutorial on the Processing site](https://processing.org/tutorials/pvector/) before continuing.
 
-First, we create an array of four PVectors:
+First, we create an array of four PVectors, one for each corner of our polygon:
 
 	PVector[] vertices = new PVector[4];
 
-Then, we set their positions. Here we're drawing a distorted trapezoid, but you could make more complicated shapes, or even randomize the points!
+Then, we set their X/Y positions. Here we're drawing a distorted trapezoid (like above), but you could make more complicated shapes, or even randomize the points!
 
 	vertices[0] = new PVector(200,100);		// set X/Y position
   	vertices[1] = new PVector(400,130);
   	vertices[2] = new PVector(350,300);
   	vertices[3] = new PVector(250,300);
 
-To check for collision, we're going to use a separate boolean variable. This will be inside our function later.
+To check for collision, we're going to use a separate boolean variable. This will be inside our function later, so if this gets confusing, jump to the full example at the bottom.
 
 	boolean collision = false;
 
-Then we need to go through the vertices one-by-one. To do this we use a for loop. But also want the next vertex in the list, so we use a second variable. Here's what the loop looks like:
+Then we need to go through the vertices one-by-one. To do this we use a for loop with the variable `current`. But also want the next vertex in the list so we can form a line (a side of the polygon). To do this, we use a second variable called `next`. Here's what the loop looks like:
 
 	int next = 0;
   	for (int current=0; current<vertices.length; current++) {
@@ -35,37 +35,36 @@ Then we can use `current` and `next` to retrieve the PVectors from our array:
 	PVector vc = vertices[current];    // c for "current"
     PVector vn = vertices[next];       // n for "next"
 
-We can access the X/Y coordinates of each vertex using the syntax `vc.x` and `vc.y`. Now for the if statement. This gets a little tricky, so here's the whole thing, then we'll break it down into its parts:
+Now for the if statement. We can access the X/Y coordinates of each vertex using the syntax `vc.x` and `vc.y`. This statement is pretty tricky, so here's the whole thing, then we'll break it down into its parts:
 
 	if ( ((vc.y > py) != (vn.y > py)) && (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
       collision = !collision;
     }
 
-There are two tests happening here. The first checks if the point is between the two vertices in the Y direction. 
+There are two tests happening here. The first checks if the point is between the two vertices in the Y direction:
+
+	(vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)
+
+We test if the point is either above `vc.y` and below `vn.y`, or below `vc.y` and above `vn.y`. Here's what this looks like visually:
+
+![Diagram of a point above/below the Y coordinates of a polygon](images/poly-point.jpg)
+
+Note: There's a fancier, more concise way of writing this if statement, if you prefer:
 
 	(vc.y > py) != (vn.y > py)
 
-That's a little confusing. Imagine a line and a point in the middle:
+That's a little confusing: it does the same test, but only evaluates `true` if both tests are not the same as each other!
 
-	Line:  (0,0, 0,10)
-	Point: (0,5)
-
-The point is clearly between the two Y coordinates of the line. That's what the first comparison in the if statement does:
-
-	0  > 5	FALSE
-	10 > 5  TRUE
-
-If one of those statements is true and the other false, we know the line is between the two points! If both are true, the point is above the line; if both are false, it is below.
-
-Next up is a more complicated test. This is based on the [Jordan Curve Theorem](http://en.wikipedia.org/wiki/Jordan_curve_theorem), which is pretty intense math so we'll skip explaining it. If you want a collision-detection challenge, by all means! (And, if you already understand this algorithm, please do let me know!)
+Next up is a more complicated test. This is based on the [Jordan Curve Theorem](http://en.wikipedia.org/wiki/Jordan_curve_theorem), which is pretty intense math so we'll skip explaining it. (If you  understand how this algorithm works, please do let me know!)
 
 	px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x
 
-If both checks are true, we switch the value of `collision`. This is different than our other previous tests, where we set the collision to true or false. After we've gone through all the vertices, whatever the final state of `collision` is is the result.
+If both checks are true, we switch `collision` to its opposite value. This is different than our previous tests, where we set the collision to simply `true` or `false`. After we've gone through all the vertices, whatever the final state of `collision` is is the result.
 
-	collision = !collision;		// set collision to the opposite of its current state
+	// set collision to the opposite of its current state
+	collision = !collision;
 
-Here's a full example using a distorted trapezoid as the polygon:
+Here's a full example with everything together:
 
 	float px = 0;    // point position
 	float py = 0;
@@ -81,8 +80,9 @@ Here's a full example using a distorted trapezoid as the polygon:
 	  strokeWeight(5);  // make the point easier to see
 	  
 	  // set position of the vertices
-	  // here we draw a distorted trapezoid, but you could
-	  // make much more complex shapes, or even randomize the points!
+	  // here we draw a distorted trapezoid, but 
+	  // you could make much more complex shapes
+	  // or even randomize the points!
 	  vertices[0] = new PVector(200,100);
 	  vertices[1] = new PVector(400,130);
 	  vertices[2] = new PVector(350,300);
@@ -121,7 +121,8 @@ Here's a full example using a distorted trapezoid as the polygon:
 	boolean polyPoint(PVector[] vertices, float px, float py) {
 	  boolean collision = false;
 	  
-	  // go through each of the vertices, plus the next vertex in the list
+	  // go through each of the vertices, plus
+	  // the next vertex in the list
 	  int next = 0;
 	  for (int current=0; current<vertices.length; current++) {
 	    
@@ -135,14 +136,16 @@ Here's a full example using a distorted trapezoid as the polygon:
 	    PVector vc = vertices[current];    // c for "current"
 	    PVector vn = vertices[next];       // n for "next"
 	    
-	    // compare position, flip 'collision' variable back and forth
-	    if ( ((vc.y > py) != (vn.y > py)) && (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
-	      collision = !collision;
-	    }
+	    // compare position, flip 'collision' variable
+	    // back and forth
+	    if (((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+             (px < (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
+        		collision = !collision;
+    	}
 	  }
 	  return collision;  
 	}
 
-This function is designed to take any number of vertices, so it can handle very complex shapes! However, the more vertices you check, the slower the function will be. If you wanted to do this in a full game, a few of these checks on complex shapes could slow your game to a crawl. Balance the need for accuracy with speed; whatever feels intuitive is probably right.
+This function is designed to take any number of vertices, so it can handle very complex shapes! However, the more vertices you check, the slower the function will be. If you wanted to do this in a full game, even just a few of these tests on complex shapes could slow your game to a crawl. Balance the need for accuracy with speed: whatever feels intuitive is probably the right way to go.
 
 This example is based on [this answer by nirg and Pranav from StackOverflow](http://stackoverflow.com/a/2922778/1167783).

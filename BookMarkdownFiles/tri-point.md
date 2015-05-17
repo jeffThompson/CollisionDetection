@@ -1,5 +1,11 @@
-## TRIANGLE/POINT  
-To test if a point is inside a triangle, we compare the area of the original triangle with the sum of three triangles made between the point and the corners of the triangle. To do this, we have to calculate the area of the triangles:
+# TRIANGLE/POINT  
+To test if a point is inside a triangle, we compare the area of the original triangle with the sum of the area of three triangles made between the point and the corners of the triangle. 
+
+Here's a diagram demonstrating the triangles created for a point outside and inside the triangle:
+
+![Points outside and inside a triangle, forming three smaller triangles](images/tri-point.jpg)
+
+To get the area, we use the following formula:
 
 	float areaOrig = abs( (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1) );
 
@@ -9,14 +15,14 @@ This formula is called [Heron's Forumula](http://en.wikipedia.org/wiki/Heron%27s
   	float area2 =    abs( (x2-px)*(y3-py) - (x3-px)*(y2-py) );
   	float area3 =    abs( (x3-px)*(y1-py) - (x1-px)*(y3-py) );
 
-If we add the three areas together and they equal the original, we know we're inside the triangle! Here's the full function:
+If we add the three areas together and they equal the original, we know we're inside the triangle! Using this, we can test for collision:
 
 	if (area1 + area2 + area3 == areaOrig) {
 	  return true;
 	}
 	return false;
 
-Here's an example with the full function:
+Here's a full example:
 
 	float px = 0;        // point (set by mouse)
 	float py = 0;
@@ -78,4 +84,4 @@ Here's an example with the full function:
 	  return false;
 	}
 
-This example was built on a modified version of a post on [Yo Yo Games](http://gmc.yoyogames.com/index.php?showtopic=106307). If you would like to read a lengthy discussion on the merits and problems with this method, and many other suggestions, see [this thread on GameDev.net](http://www.gamedev.net/topic/295943-is-this-a-better-point-in-triangle-test-2d/).
+This example was built on a modified version of a post on [YoYo Games](http://gmc.yoyogames.com/index.php?showtopic=106307). If you would like to read a lengthy discussion on the merits and problems with this method, and many other suggestions, see [this thread on GameDev.net](http://www.gamedev.net/topic/295943-is-this-a-better-point-in-triangle-test-2d/).

@@ -1,21 +1,20 @@
 
 /*
-1: POINT POINT
+POINT POINT
 Jeff Thompson | 2015 | www.jeffreythompson.org
-
 
 */
 
-int px, py;        // point controlled by the mouse
-int targetX = 300;    // target point coordinates
-int targetY = 200;
+float px, py;           // point controlled by the mouse
+float targetX = 300;    // target point coordinates
+float targetY = 200;
 
 
 void setup() {
   size(600, 400);
   noCursor();
   
-  strokeWeight(5);  // thicker stroke so points are easier to see
+  strokeWeight(5);    // thicker stroke so points are easier to see
 }
 
 
@@ -36,20 +35,23 @@ void draw() {
   }
 
   // draw the two points
-  stroke(255,0,0);
+  stroke(0,150,255);
   point(targetX, targetY);
   
-  stroke(0);
+  stroke(0,150);
   point(px, py);
 }
 
 
-// check if points are in the same location
-boolean pointPoint(int x1, int y1, int x2, int y2) {
+// POINT/POINT
+boolean pointPoint(float x1, float y1, float x2, float y2) {
+  
+  // are the two points in the same location?
   if (x1 == x2 && y1 == y2) {
     return true;
   }
   return false;
 }
+
 
 

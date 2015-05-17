@@ -1,5 +1,14 @@
-## POLYGON/CIRCLE  
-To test if a circle has collided with a polygon, we can simplify the problem to a series of Line/Circle collisions, one for each side of the polygon. Since we've already covered the steps to go through the vertices as lines, and Line/Circle collisions, let's just look at the full example.
+<figcaption>Note what happens when the circle is inside<br>the polygon: we'll fix that later.</figcaption>
+
+# POLYGON/CIRCLE  
+To test if a circle has collided with a polygon, we can simplify the problem to a series of [Line/Circle](line-circle.php) collisions, one for each side of the polygon. Since we've already covered the steps to go through the vertices as lines, and [Line/Circle](line-circle.php) collisions, let's just look at the test for each side:
+
+    boolean collision = lineCircle(vc.x,vc.y, vn.x,vn.y, cx,cy,r);
+    if (collision) return true;
+
+Cool! We can build on previous code this way, allowing flexible, complex code to emerge from simpler pieces.
+
+Here's the full example:
 
 	float cx = 0;    // position of the circle
 	float cy = 0;
@@ -51,7 +60,8 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 	// POLYGON/CIRCLE
 	boolean polyCircle(PVector[] vertices, float cx, float cy, float r) {
 	  
-	  // go through each of the vertices, plus the next vertex in the list
+	  // go through each of the vertices, plus 
+	  // the next vertex in the list
 	  int next = 0;
 	  for (int current=0; current<vertices.length; current++) {
 	    
@@ -65,17 +75,17 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 	    PVector vc = vertices[current];    // c for "current"
 	    PVector vn = vertices[next];       // n for "next"
 	    
-	    // check for collision between the circle and a line formed
-	    // between the two vertices
+	    // check for collision between the circle and
+	    // a line formed between the two vertices
 	    boolean collision = lineCircle(vc.x,vc.y, vn.x,vn.y, cx,cy,r);
 	    if (collision) return true;
 	  }
 	  
-	    
-	  // the above algorithm only checks if the circle is touching
-	  // the edges of the polygon – in most cases this is enough, but
-	  // you can un-comment the following code to also test if the
-	  // center of the circle is inside the polygon
+	  // the above algorithm only checks if the circle
+	  // is touching the edges of the polygon – in most 
+	  // cases this is enough, but you can un-comment the
+	  // following code to also test if the center of the
+	  // circle is inside the polygon
 	  
 	  // boolean centerInside = polygonPoint(vertices, cx,cy);
 	  // if (centerInside) return true;
@@ -105,7 +115,8 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 	  boolean onSegment = linePoint(x1,y1,x2,y2, closestX,closestY);
 	  if (!onSegment) return false;
 
-	  // optionally, draw a circle at the closest point on the line
+	  // optionally, draw a circle at the closest point
+	  // on the line
 	  fill(255,0,0);
 	  noStroke();
 	  ellipse(closestX, closestY, 20, 20);
@@ -137,9 +148,10 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 	  // a little buffer zone that will give collision
 	  float buffer = 0.1;    // higher # = less accurate
 	  
-	  // if the two distances are equal to the line's length, the
-	  // point is on the line!
-	  // note we use the buffer here to give a range, rather than one #
+	  // if the two distances are equal to the line's
+	  // length, the point is on the line!
+	  // note we use the buffer here to give a range, rather
+	  // than one #
 	  if (d1+d2 >= lineLen-buffer && d1+d2 <= lineLen+buffer) {
 	    return true;
 	  }  
@@ -148,11 +160,13 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 
 
 	// POLYGON/POINT
-	// only needed if you're going to check if the circle is INSIDE the polygon
+	// only needed if you're going to check if the circle
+	// is INSIDE the polygon
 	boolean polygonPoint(PVector[] vertices, float px, float py) {
 	  boolean collision = false;
 	  
-	  // go through each of the vertices, plus the next vertex in the list
+	  // go through each of the vertices, plus the next
+	  // vertex in the list
 	  int next = 0;
 	  for (int current=0; current<vertices.length; current++) {
 	    
@@ -166,21 +180,25 @@ To test if a circle has collided with a polygon, we can simplify the problem to 
 	    PVector vc = vertices[current];    // c for "current"
 	    PVector vn = vertices[next];       // n for "next"
 	    
-	    // compare position, flip 'collision' variable back and forth
-	    if ( ((vc.y > py) != (vn.y > py)) && (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
-	      collision = !collision;
-	    }
+	    // compare position, flip 'collision' variable
+	    // back and forth
+	    if (((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+             (px < (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
+        		collision = !collision;
+    	}
 	  }
 	  return collision;  
 	}
 
-Note that `polyCircle()` calls `lineCircle()` which calls `linePoint()`. We could combine these, but the idea of functions in programming is reusability. It does show how the basic concepts we've covered can be used together to work on more complicated collisions.
+Since `polyCircle()` calls `lineCircle()` which calls `linePoint()`, we could combine these into a single function, but the idea of functions in programming is reusability. Now, if we update `linePoint()`, it carries through all our projects.
 
-But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These are called "edge cases", ones that require a different set of parameters to check for. In most situations, we don't need this. Imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).
+But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These situations are called "edge cases", ones that require a different set of parameters to check for. 
 
-We can add two more lines to our function (right before the final `return false;`) to test if the center of the circle is inside the polygon:
+In most situations, we don't to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).
+
+If you do need to know if the circle is inside the polygon, you can add two more lines to the `polyCircle()` function (right before the final `return false;`) to test if the center of the circle is inside the polygon:
 
 	boolean centerInside = polygonPoint(cx,cy, vertices);
   	if (centerInside) return true;
 
-We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow your program down. You'll have to add the Polygon/Point function, not included in the above code.
+We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow your program down.

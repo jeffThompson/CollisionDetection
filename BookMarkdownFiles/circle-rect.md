@@ -1,22 +1,26 @@
-## CIRCLE/RECTANGLE  
-The last example of this section combines the circle and rectangle code. We have to test which edge of the rectangle is closest, then check using the Pythagorean Theorem. For this example, we have a circle with the position `(cx,cy)` with a radius and a square at `(rx,ry)` with a width/height.
+# CIRCLE/RECTANGLE  
+The last example of this section combines the circle and rectangle code together. We have a circle with the position `(cx,cy)` with a radius `r` and a square at `(rx,ry)` with a width/height `(rw,rh)`.
 
-First, we create a temporary variable for the X and Y edges we want to check. We'll set them as the circle's position to start:
+Our code will first test which edge of the rectangle is closest to the circle, then see if there is a collision using the Pythagorean Theorem. Let's create a temporary variable for the square's closest X/Y edges. We'll set them as the circle's position to start:
 
 	float testX = cx;
 	float testY = cy;
 
-To find which edge to check, we do the following tests:
+Then we do the following tests:
 
 	If the circle is to the RIGHT of the square, check against square's RIGHT edge.
+	
 	If the circle is to the LEFT of the square, check against square's LEFT edge.
+	
 	If the circle is ABOVE the square, check against square's TOP edge.
+	
 	If the circle is to the BELOW the square, check against square's BOTTOM edge.
 
 Here's how that works as an if statement:
   
-	if (cx < rx)         testX = rx;		// compare to left edge
+	if (cx < rx)         testX = rx;		// left edge
 	else if (cx > rx+rw) testX = rx+rw;		// right edge
+	
 	if (cy < ry)         testY = ry;		// top edge
 	else if (cy > ry+rh) testY = ry+rh;		// bottom edge
 
@@ -28,14 +32,14 @@ Now that we know which edges to check, we run the Pythagorean Theorem code using
   	float distY = cy-testY;
   	float distance = sqrt( (distX*distX) + (distY*distY) );
 
-Then we compare this distance to the circle's radius. Here's the full function:
+Finally, we compare this distance to the circle's radius:
 
 	if (distance <= radius) {
 		return true;
 	}
 	return false;
 
-And here's a working example:
+Here's a full example:
 
 	float cx = 0;      // circle position (set with mouse)
 	float cy = 0;
@@ -85,10 +89,10 @@ And here's a working example:
 	  float testY = cy;
 	  
 	  // which edge is closest?
-	  if (cx < rx)         testX = rx;        // compare to left edge
-	  else if (cx > rx+rw) testX = rx+rw;     // right edge
-	  if (cy < ry)         testY = ry;        // top edge
-	  else if (cy > ry+rh) testY = ry+rh;     // bottom edge
+	  if (cx < rx)         testX = rx;      // test left edge
+	  else if (cx > rx+rw) testX = rx+rw;   // right edge
+	  if (cy < ry)         testY = ry;      // top edge
+	  else if (cy > ry+rh) testY = ry+rh;   // bottom edge
 	  
 	  // get distance from closest edges
 	  float distX = cx-testX;
@@ -102,4 +106,4 @@ And here's a working example:
 	  return false;
 	}
 
-This example is built on code by [Matt Worden](http://vband3d.tripod.com/visualbasic/tut_mixedcollisions.htm).
+This example is built on code by [Matt Worden](http://vband3d.tripod.com/visualbasic/tut_mixedcollisions.htm) (thanks!).

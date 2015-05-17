@@ -33,9 +33,9 @@ void draw() {
   
   // check for collision
   // if hit, change the color of the line
-  boolean hit = linePoint(px,py, x1,y1, x2,y2);
-  if (hit) stroke(255,150,0);
-  else stroke(0);
+  boolean hit = linePoint(x1,y1, x2,y2, px,py);
+  if (hit) stroke(255,150,0, 150);
+  else stroke(0,150,255, 150);
   line(x1,y1, x2,y2);
   
   // draw the point
@@ -44,7 +44,8 @@ void draw() {
 }
 
 
-boolean linePoint(float px, float py, float x1, float y1, float x2, float y2) {
+// LINE/POINT
+boolean linePoint(float x1, float y1, float x2, float y2, float px, float py) {
   
   // get distance from the point to the two ends of the line
   float d1 = dist(px,py, x1,y1);

@@ -34,8 +34,8 @@ void draw() {
   // check for collision
   // if hit, change the color of the line
   boolean hit = linePoint(x1,y1, x2,y2, px,py);
-  if (hit) stroke(255,150,0);
-  else stroke(0);
+  if (hit) stroke(255,150,0, 150);
+  else stroke(0,150,255, 150);
   line(x1,y1, x2,y2);
   
   // draw the point

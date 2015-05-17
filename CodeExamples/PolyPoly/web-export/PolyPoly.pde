@@ -24,9 +24,14 @@ void setup() {
   }
   
   // and create the random polygon
-  randomPoly[0] = new PVector( random(100,500), random(100,300) );
-  for (int i=1; i<randomPoly.length; i++) {
-    randomPoly[i] = new PVector( randomPoly[i-1].x+random(-30,30), randomPoly[i-1].y+random(-30,30) ); 
+  float a = 0;
+  int i = 0;
+  while (a < 360) {
+    float x = cos(radians(a)) * random(30,50);
+    float y = sin(radians(a)) * random(30,50);
+    randomPoly[i] = new PVector(x,y);
+    a += random(15, 40);
+    i += 1;
   }
 }
 
@@ -65,6 +70,7 @@ void draw() {
 }
 
 
+// POLYGON/POLYGON
 boolean polyPoly(PVector[] p1, PVector[] p2) {
   
   // go through each of the vertices, plus the next vertex in the list
@@ -83,11 +89,11 @@ boolean polyPoly(PVector[] p1, PVector[] p2) {
     
     // now we can use these two points (a line) to compare to the
     // other polygon's vertices using polyLine()
-    boolean collision = polyLine(vc.x,vc.y,vn.x,vn.y, p2);
+    boolean collision = polyLine(p2, vc.x,vc.y,vn.x,vn.y);
     if (collision) return true;
     
     // optional: check if the 2nd polygon is INSIDE the first
-    collision = polyPoint(p2[0].x, p2[0].y, p1);
+    collision = polyPoint(p1, p2[0].x, p2[0].y);
     if (collision) return true;
   }
   
@@ -95,7 +101,8 @@ boolean polyPoly(PVector[] p1, PVector[] p2) {
 }
 
 
-boolean polyLine(float x1, float y1, float x2, float y2, PVector[] vertices) {
+// POLYGON/LINE
+boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
 
   // go through each of the vertices, plus the next vertex in the list
   int next = 0;
@@ -126,6 +133,7 @@ boolean polyLine(float x1, float y1, float x2, float y2, PVector[] vertices) {
 }
 
 
+// LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
   // calculate the direction of the lines
@@ -140,8 +148,9 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
 }
 
 
+// POLYGON/POINT
 // used only to check if the second polygon is INSIDE the first
-boolean polyPoint(float px, float py, PVector[] vertices) {
+boolean polyPoint(PVector[] vertices, float px, float py) {
   boolean collision = false;
   
   // go through each of the vertices, plus the next vertex in the list
@@ -159,8 +168,9 @@ boolean polyPoint(float px, float py, PVector[] vertices) {
     PVector vn = vertices[next];       // n for "next"
     
     // compare position, flip 'collision' variable back and forth
-    if ( ((vc.y > py) != (vn.y > py)) && (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
-      collision = !collision;
+    if ( ((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+         (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
+            collision = !collision;
     }
   }
   return collision;  

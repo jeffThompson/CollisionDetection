@@ -20,7 +20,9 @@ void setup() {
   
   // generate rectangles in random locations
   for (int i=0; i<rects.length; i++) {
-    rects[i] = new Rectangle(random(width-50), random(height-50), 50,50);
+    float x = int(random(50,width-50)/50) * 50;    // but snap to grid!
+    float y = int(random(50,height-50)/50) * 50;
+    rects[i] = new Rectangle(x,y, 50,50);
   }
 }
 

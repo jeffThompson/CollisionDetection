@@ -3,12 +3,18 @@
 LINE/LINE
  Jeff Thompson | 2015 | www.jeffreythompson.org
  
+ Via examples by Paul Bourke:
+ http://paulbourke.net/geometry/pointlineplane
+ 
+ And Ibackstrom:
+ http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=geometry2
+ 
  */
 
-float x1 = 10;   // line controlled by mouse
-float y1 = 10;
-float x2 = 0;    // fixed end
-float y2 = 0;
+float x1 = 0;    // line controlled by mouse
+float y1 = 0;
+float x2 = 20;   // fixed end
+float y2 = 20;
 
 float x3 = 100;  // static line
 float y3 = 300;
@@ -33,8 +39,8 @@ void draw() {
   // check for collision
   // if hit, change color of line
   boolean hit = lineLine(x1,y1,x2,y2, x3,y3,x4,y4);
-  if (hit) stroke(255,150,0);
-  else stroke(0);
+  if (hit) stroke(255,150,0, 150);
+  else stroke(0,150,255, 150);
   line(x3,y3, x4,y4);
   
   // draw user-controlled line
@@ -43,6 +49,7 @@ void draw() {
 }
 
 
+// LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
   // calculate the direction of the lines

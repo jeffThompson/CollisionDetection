@@ -1,5 +1,5 @@
-## POINT/RECTANGLE  
-Checking for collision with circular objects is fairly easy, since it is the same distance from the center to the edge in every direction. Rectangles require a bit more complex algorithm.
+# POINT/RECTANGLE  
+Checking for collision with circular objects is fairly easy, since it is the same distance from the center to their edge in every direction. Rectangles require a bit more complex algorithm. 
 
 Let's say we have a square:
 
@@ -8,37 +8,41 @@ Let's say we have a square:
 	float rw = 30;	// width
 	float rh = 30;	// height
 
-To test if a point is inside the square, we have to test if:
+To see if a point is inside the square, we have to test:
 
 	Is the point's X position to the RIGHT of the LEFT EDGE?
 	Is the point's X position to the LEFT of the RIGHT EDGE?
 	Is the point's Y position BELOW the TOP EDGE?
 	Is the point's Y position ABOVE the BOTTOM EDGE?
 
-If all of these are true, then the point is inside. Let's look at testing the left edge first:
+If all of these are true, then the point is inside. Let's look at testing the left edge first. Since the default mode for the `rect()` command draws from the upper-left corner, the left edge is at `rx`:
 
 	if (px >= rx) {
 		// to the right of the left edge
 	}
 
-Pretty easy! If we want to check the right edge, we need to get the X position of that edge:
+Pretty easy, but maybe not so intuitive. Here's a diagram showing the left edge of the rectangle:
+
+![Left edge of a rectangle](images/rect-bounding-box.jpg)
+
+If we want to check the right edge, we need to get its X position, which is the left edge plus the width:
 
 	float rightEdge = rx + rw;
 	if (px <= rightEdge) {
 		// to the left of the right edge
 	}
 
-Here's the full if statement. Note that we combine the addition into the statement, rather than create separate variables. This is more concise and may save processing on complex projects.
+Here's the full if statement:
 		
 	if (px >= rx &&			// right of the left edge AND
 		px <= rx + rw &&	// left of the right edge AND
 		py >= ry &&			// below the top AND
-		py <= py + rh) {	// above the bottom 
+		py <= ry + rh) {	// above the bottom 
 			return true;
 	}
 	return false;
 
-If all the statements are true, then the point is inside the square. Note we can break our if statement into multiple lines, which makes it a little easier to read. This is personal preference, but we'll keep doing that here for the sake of clarity.
+If *all* the statements are true, then the point is inside the square. Note we can break our if statement into multiple lines, which makes it a little easier to read. This is personal preference, but we'll keep doing that here for the sake of clarity.
 
 Here's a full example:
 
@@ -55,7 +59,7 @@ Here's a full example:
 	  size(600,400);
 	  noCursor();
 	  
-	  strokeWeight(5);    // thicker stroke so points are easier to see
+	  strokeWeight(5);    // thicker stroke = easier to see
 	}
 
 
@@ -91,7 +95,7 @@ Here's a full example:
 	  if (px >= rx &&        // right of the left edge AND
 	      px <= rx + rw &&   // left of the right edge AND
 	      py >= ry &&        // below the top AND
-	      py <= py + rh) {   // above the bottom 
+	      py <= ry + rh) {   // above the bottom 
 	        return true;
 	  }
 	  return false;

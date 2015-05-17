@@ -35,12 +35,12 @@ void draw() {
   // check for collision
   // if hit, change line's stroke color
   boolean hit = lineCircle(x1,y1, x2,y2, cx,cy,r);
-  if (hit) stroke(255,150,0);
-  else stroke(0);
+  if (hit) stroke(255,150,0, 150);
+  else stroke(0,150,255, 150);
   line(x1,y1, x2,y2);
   
   // draw the circle
-  fill(0,150,255, 150);
+  fill(0, 150);
   noStroke();
   ellipse(cx,cy, r*2,r*2);  
 }
@@ -49,6 +49,12 @@ void draw() {
 // LINE/CIRCLE
 boolean lineCircle(float x1, float y1, float x2, float y2, float cx, float cy, float r) {
 
+  // is either end INSIDE the circle?
+  // if so, return true immediately
+  boolean inside1 = pointCircle(x1,y1, cx,cy,r);
+  boolean inside2 = pointCircle(x2,y2, cx,cy,r);
+  if (inside1 || inside2) return true;
+  
   // get length of the line
   float distX = x1 - x2;
   float distY = y1 - y2;
@@ -101,6 +107,24 @@ boolean linePoint(float x1, float y1, float x2, float y2, float px, float py) {
   // point is on the line!
   // note we use the buffer here to give a range, rather than one #
   if (d1+d2 >= lineLen-buffer && d1+d2 <= lineLen+buffer) {
+    return true;
+  }
+  return false;
+}
+
+
+// POINT/CIRCLE
+boolean pointCircle(float px, float py, float cx, float cy, float r) {
+  
+  // get distance between the point and circle's center
+  // using the Pythagorean Theorem
+  float distX = px - cx;
+  float distY = py - cy;
+  float distance = sqrt( (distX*distX) + (distY*distY) );
+
+  // if the distance is less than the circle's 
+  // radius the point is inside!
+  if (distance <= r) {
     return true;
   }
   return false;

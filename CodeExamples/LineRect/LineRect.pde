@@ -7,8 +7,8 @@ LINE/RECTANGLE
 
 float x1 = 0;      // points for line (controlled by mouse)
 float y1 = 0;
-float x2 = 0;      // static point
-float y2 = 0;
+float x2 = 20;     // static point
+float y2 = 20;
 
 float sx = 200;    // square position
 float sy = 100;
