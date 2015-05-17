@@ -74,7 +74,7 @@ void draw() {
 
   // draw the other square
   fill(0, 150);
-  rect(s1x,s1y, s1w,s1h);
+  rect(s1x,s1y, s1w,s1h);  
 }
 
 

@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<p><img src="images/table-of-contents.jpg"></p>
+<p><img src="images/table-of-contents.jpg" alt="Point, rectangle, circle, line, triangle, polygon" title=""></p>
 
 <h1>TABLE OF CONTENTS</h1>
 

@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<p><figcaption>Use your mouse to collide the two points!</figcaption></p>
+<figcaption>Use your mouse to collide the two points!</figcaption>
 
 <h1>POINT/POINT</h1>
 

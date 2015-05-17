@@ -86,9 +86,9 @@ void draw() {
   line(x1,y1, x2,y2);
 
   // draw the circle
-  fill(0, 150);
+  fill(0,150,255, 150);
   noStroke();
-  ellipse(cx,cy, r*2,r*2);
+  ellipse(cx,cy, r*2,r*2);  
 }
 
 
@@ -145,7 +145,7 @@ boolean pointCircle(float px, float py, float cx, float cy, float r) {
   float distY = py - cy;
   float distance = sqrt( (distX*distX) + (distY*distY) );
 
-  // if the distance is less than the circle's
+  // if the distance is less than the circle's 
   // radius the point is inside!
   if (distance &lt;= r) {
     return true;
@@ -170,7 +170,7 @@ boolean linePoint(float x1, float y1, float x2, float y2, float px, float py) {
 
   // if the two distances are equal to the line's
   // length, the point is on the line!
-  // note we use the buffer here to give a range,
+  // note we use the buffer here to give a range, 
   // rather than one #
   if (d1+d2 &gt;= lineLen-buffer &amp;&amp; d1+d2 &lt;= lineLen+buffer) {
     return true;

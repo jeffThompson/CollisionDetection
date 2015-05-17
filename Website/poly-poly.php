@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<p><figcaption>Refresh your browser for a new random polygon!</figcaption></p>
+<figcaption>Refresh your browser for a new random polygon!</figcaption>
 
 <h1>POLYGON/POLYGON</h1>
 
@@ -108,7 +108,7 @@ boolean polyPoly(PVector[] p1, PVector[] p2) {
 // POLYGON/LINE
 boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
 
-  // go through each of the vertices, plus the next
+  // go through each of the vertices, plus the next 
   // vertex in the list
   int next = 0;
   for (int current=0; current&lt;vertices.length; current++) {
@@ -126,7 +126,7 @@ boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
     float y4 = vertices[next].y;
 
     // do a Line/Line comparison
-    // if true, return 'true' immediately and
+    // if true, return 'true' immediately and 
     // stop testing (faster)
     boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
     if (hit) {
@@ -182,7 +182,7 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
             collision = !collision;
     }
   }
-  return collision;
+  return collision;  
 }
 </code></pre>
 

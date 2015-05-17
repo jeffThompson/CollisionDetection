@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<p><figcaption>Note what happens when the circle is inside<br>the polygon: we'll fix that later.</figcaption></p>
+<figcaption>Note what happens when the circle is inside<br>the polygon: we'll fix that later.</figcaption>
 
 <h1>POLYGON/CIRCLE</h1>
 

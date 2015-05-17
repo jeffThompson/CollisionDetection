@@ -14,7 +14,7 @@
 <li>Too much time spent on <a href="http://www.stackoverflow.com">StackOverflow</a>  </li>
 </ul>
 
-<p><br>Also a big "thank you" to:  </p>
+<p>Also a big "thank you" to:  </p>
 
 <ul>
 <li>Ben Fry and Casey Reas, the creators of <a href="Processing">Processing</a>, and to the great community of creative people who use the language  </li>
@@ -23,6 +23,6 @@
 <li>JQuery, MAMP, and other free and open-source development tools used to make this project  </li>
 </ul>
 
-<p><br>And if you've found this code helpful in your projects, please do let me know!</p>
+<p>And if you've found this code helpful in your projects, please do let me know!</p>
 
 <?php include('includes/footer.php'); ?>

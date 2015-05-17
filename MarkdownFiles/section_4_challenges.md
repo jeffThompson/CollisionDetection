@@ -1,3 +1,5 @@
+![Challenge!](images/challenge.jpg)
+
 ####SECTION 4  
 #CHALLENGES  
 Try these challenge prompts to modify the code we've written:

@@ -1,6 +1,7 @@
-#TABLE OF CONTENTS  
 
 ![Point, rectangle, circle, line, triangle, polygon](images/table-of-contents.jpg)
+
+#TABLE OF CONTENTS  
 
 ### PREAMBLE
 + [Introduction](index.php)  

@@ -4,7 +4,7 @@
 
 <p><a href="point-point.php">Point/Point</a> collision was very easy, but from here on out we'll need some basic math to check if objects are touching each other. Testing if a point is inside a circle requires us to remember back to middle school math class and the <a href="http://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean Theorem</a>:</p>
 
-<pre><code>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
+<pre><code>a2 + b2 = c2
 </code></pre>
 
 <p>We can get the length of the long edge of a triangle <code>c</code> given the length of the other two sides. Translated to code, it looks like this:</p>
@@ -93,7 +93,7 @@ boolean pointCircle(float px, float py, float cx, float cy, float r) {
   float distY = py - cy;
   float distance = sqrt( (distX*distX) + (distY*distY) );
 
-  // if the distance is less than the circle's
+  // if the distance is less than the circle's 
   // radius the point is inside!
   if (distance &lt;= r) {
     return true;

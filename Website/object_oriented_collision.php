@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<p><figcaption>Refresh your browser for random squares!</figcaption></p>
+<figcaption>Refresh your browser for random squares!</figcaption>
 
 <h1>MOVING TO OBJECT-ORIENTED COLLISION</h1>
 

@@ -73,6 +73,8 @@ em {
 figcaption {
 	font-style:			italic;
 	text-align:			center;
+}
+h1 ~ figcaption {
 	margin-top:			-2em;
 }
 
@@ -82,7 +84,7 @@ ul, ol {
 	line-height:		1.4em;
 }
 ul {
-	margin-top:			-1.3em;
+	margin:				-1.3em 0 1.3em 0;
 }
 ul li {
 	padding-left:		1.3em;

@@ -33,8 +33,8 @@ return false;
 
 <pre><code>float x1 = 0;      // points for line (controlled by mouse)
 float y1 = 0;
-float x2 = 20;     // static point
-float y2 = 20;
+float x2 = 0;      // static point
+float y2 = 0;
 
 float sx = 200;    // square position
 float sy = 100;
@@ -80,7 +80,7 @@ boolean lineRect(float x1, float y1, float x2, float y2, float rx, float ry, flo
   boolean top =    lineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry);
   boolean bottom = lineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh);
 
-  // if ANY of the above are true, the line
+  // if ANY of the above are true, the line 
   // has hit the rectangle
   if (left || right || top || bottom) {
     return true;

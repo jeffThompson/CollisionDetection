@@ -29,8 +29,8 @@ float intersectionY = y1 + (uA * (y2-y1));
 
 <pre><code>float x1 = 0;    // line controlled by mouse
 float y1 = 0;
-float x2 = 20;   // fixed end
-float y2 = 20;
+float x2 = 10;   // fixed end
+float y2 = 10;
 
 float x3 = 100;  // static line
 float y3 = 300;
@@ -61,7 +61,7 @@ void draw() {
 
   // draw user-controlled line
   stroke(0, 150);
-  line(x1,y1, x2,y2);
+  line(x1,y1, x2,y2);  
 }
 
 
