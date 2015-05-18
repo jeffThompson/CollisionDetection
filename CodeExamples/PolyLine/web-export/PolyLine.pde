@@ -7,8 +7,8 @@ POLYGON/LINE
 
 float x1 = 0;    // line position (set by mouse)
 float y1 = 0;
-float x2 = 0;    // fixed end
-float y2 = 0;
+float x2 = 20;   // fixed end
+float y2 = 20;
 
 // array of PVectors, one for each vertex in the polygon
 PVector[] vertices = new PVector[16];
@@ -42,7 +42,7 @@ void draw() {
 
   // check for collision
   // if hit, change fill color
-  boolean hit = polygonLine(x1, y1, x2, y2, vertices);
+  boolean hit = polyLine(vertices, x1, y1, x2, y2);
   if (hit) fill(255, 150, 0);
   else fill(0, 150, 255);
 
@@ -60,7 +60,8 @@ void draw() {
 }
 
 
-boolean polygonLine(float x1, float y1, float x2, float y2, PVector[] vertices) {
+// POLYGON/LINE
+boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
 
   // go through each of the vertices, plus the next vertex in the list
   int next = 0;
@@ -91,6 +92,7 @@ boolean polygonLine(float x1, float y1, float x2, float y2, PVector[] vertices) 
 }
 
 
+// LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
   // calculate the direction of the lines
@@ -103,5 +105,6 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
+
 
 

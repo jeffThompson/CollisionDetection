@@ -7,8 +7,8 @@ POLYGON/LINE
 
 float x1 = 0;    // line position (set by mouse)
 float y1 = 0;
-float x2 = 0;    // fixed end
-float y2 = 0;
+float x2 = 20;   // fixed end
+float y2 = 20;
 
 // array of PVectors, one for each vertex in the polygon
 PVector[] vertices = new PVector[16];
