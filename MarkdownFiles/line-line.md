@@ -1,7 +1,7 @@
 # LINE/LINE  
 With this example, you'll be able to build a super-sweet sword fighting game! (Or reboot [one that never got finished](http://www.polygon.com/2014/9/19/6477103/neal-stephensons-kickstarter-clang-cancel)?)
 
-To check if two lines are touching, we have to calculate their directions. In geometry, this is denoted with the letter `u`:
+To check if two lines are touching, we have to calculate the distance to the point of intersection:
 
 	float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 	
@@ -62,7 +62,7 @@ Here's the full example:
 	// LINE/LINE
 	boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
-	  // calculate the direction of the lines
+	  // calculate the distance to intersection point
 	  float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 	  float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
@@ -81,4 +81,4 @@ Here's the full example:
 	  return false;
 	}
 
-Based on a tutorial by [Paul Bourke](http://paulbourke.net/geometry/pointlineplane), who includes code to test if the lines are parallel and [coincident](http://mathworld.wolfram.com/CoincidentLines.html). Also based on [this post by Ibackstrom](http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=geometry2).
+Based on a tutorial by [Paul Bourke](http://paulbourke.net/geometry/pointlineplane), who includes code to test if the lines are parallel and [coincident](http://mathworld.wolfram.com/CoincidentLines.html). Also based on [this post by Ibackstrom](http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=geometry2) and help from [Reddit](http://www.reddit.com/r/math/comments/36dt75/what_does_this_equation_solve_for/crd5mcc).

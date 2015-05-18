@@ -4,7 +4,7 @@
 
 <p>With this example, you'll be able to build a super-sweet sword fighting game! (Or reboot <a href="http://www.polygon.com/2014/9/19/6477103/neal-stephensons-kickstarter-clang-cancel">one that never got finished</a>?)</p>
 
-<p>To check if two lines are touching, we have to calculate their directions. In geometry, this is denoted with the letter <code>u</code>:</p>
+<p>To check if two lines are touching, we have to calculate the distance to the point of intersection:</p>
 
 <pre><code>float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
@@ -61,14 +61,14 @@ void draw() {
 
   // draw user-controlled line
   stroke(0, 150);
-  line(x1,y1, x2,y2);  
+  line(x1,y1, x2,y2);
 }
 
 
 // LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
-  // calculate the direction of the lines
+  // calculate the distance to intersection point
   float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
   float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
@@ -88,6 +88,6 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
 }
 </code></pre>
 
-<p>Based on a tutorial by <a href="http://paulbourke.net/geometry/pointlineplane">Paul Bourke</a>, who includes code to test if the lines are parallel and <a href="http://mathworld.wolfram.com/CoincidentLines.html">coincident</a>. Also based on <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=geometry2">this post by Ibackstrom</a>.</p>
+<p>Based on a tutorial by <a href="http://paulbourke.net/geometry/pointlineplane">Paul Bourke</a>, who includes code to test if the lines are parallel and <a href="http://mathworld.wolfram.com/CoincidentLines.html">coincident</a>. Also based on <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=geometry2">this post by Ibackstrom</a> and help from <a href="http://www.reddit.com/r/math/comments/36dt75/what_does_this_equation_solve_for/crd5mcc">Reddit</a>.</p>
 
 <?php include('includes/footer.php'); ?>

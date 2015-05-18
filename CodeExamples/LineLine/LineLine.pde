@@ -9,6 +9,9 @@ LINE/LINE
  And Ibackstrom:
  http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=geometry2
  
+ And help from aperson1792 on Reddit:
+ http://www.reddit.com/r/math/comments/36dt75/what_does_this_equation_solve_for/crd5mcc
+ 
  */
 
 float x1 = 0;    // line controlled by mouse
@@ -52,7 +55,7 @@ void draw() {
 // LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 
-  // calculate the direction of the lines
+  // calculate the distance to intersection point
   float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
   float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
