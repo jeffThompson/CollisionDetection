@@ -10,10 +10,10 @@ Let's say we have a square:
 
 To see if a point is inside the square, we have to test:
 
-	Is the point's X position to the RIGHT of the LEFT EDGE?
-	Is the point's X position to the LEFT of the RIGHT EDGE?
-	Is the point's Y position BELOW the TOP EDGE?
-	Is the point's Y position ABOVE the BOTTOM EDGE?
+	Is the X position of the point to the RIGHT of the LEFT EDGE?
+	Is the X position of the point to the LEFT of the RIGHT EDGE?
+	Is the Y position of the point BELOW the TOP EDGE?
+	Is the Y position of the point ABOVE the BOTTOM EDGE?
 
 If all of these are true, then the point is inside. Let's look at testing the left edge first. Since the default mode for the `rect()` command draws from the upper-left corner, the left edge is at `rx`:
 

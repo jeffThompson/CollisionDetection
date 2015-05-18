@@ -12,8 +12,9 @@ Examples built from:
 Also a big "thank you" to:  
 
 + Ben Fry and Casey Reas, the creators of [Processing](Processing), and to the great community of creative people who use the language  
++ This book was written in [Markdown](http://daringfireball.net/projects/markdown/syntax), made by John Gruber  
 + [Prettify.js](https://github.com/google/code-prettify) for syntax highlighting  
 + [SmartQuotes.js](http://smartquotesjs.com) for tidying up the typography  
-+ JQuery, MAMP, and other free and open-source development tools used to make this project  
++ [JQuery](https://jquery.com/), [MAMP](https://www.mamp.info), and other free and open-source development tools used to make this project  
 
 And if you've found this code helpful in your projects, please do let me know!

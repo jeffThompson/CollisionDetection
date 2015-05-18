@@ -8,12 +8,12 @@
 
 <p><img src="images/tri-point.jpg" alt="Points outside and inside a triangle, forming three smaller triangles" title=""></p>
 
-<p>To get the area, we use the following formula:</p>
+<p>To get the area, we use <a href="http://en.wikipedia.org/wiki/Heron%27s_formula">Heron's Forumula</a>:</p>
 
 <pre><code>float areaOrig = abs( (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1) );
 </code></pre>
 
-<p>This formula is called <a href="http://en.wikipedia.org/wiki/Heron%27s_formula">Heron's Forumula</a>. We need to calculate the area of the three triangles made from the point as well:</p>
+<p>We need to calculate the area of the three triangles made from the point as well:</p>
 
 <pre><code>float area1 =    abs( (x1-px)*(y2-py) - (x2-px)*(y1-py) );
 float area2 =    abs( (x2-px)*(y3-py) - (x3-px)*(y2-py) );
@@ -66,7 +66,7 @@ void draw() {
 
   // draw the point
   stroke(0, 150);
-  point(px,py);  
+  point(px,py);
 }
 
 
@@ -82,7 +82,7 @@ boolean triPoint(float x1, float y1, float x2, float y2, float x3, float y3, flo
   float area2 =    abs( (x2-px)*(y3-py) - (x3-px)*(y2-py) );
   float area3 =    abs( (x3-px)*(y1-py) - (x1-px)*(y3-py) );
 
-  // if the sum of the three areas equals the original, 
+  // if the sum of the three areas equals the original,
   // we're inside the triangle!
   if (area1 + area2 + area3 == areaOrig) {
     return true;

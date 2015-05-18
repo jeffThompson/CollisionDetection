@@ -1,5 +1,5 @@
 # POLYGON/POINT  
-Circle and rectangle collisions are great, and often simplifying the collision of complex shapes using bounding boxes and circles makes sense. But there are times when we want more accuracy. Fortunately, most of the remaining examples use ideas we've already covered, even if how we apply them gets more complicated.
+Circle and rectangle collisions are great, and oftentimes simplifying the collision of complex shapes using bounding boxes and circles makes sense. But there are applications when we want more accuracy. Fortunately, most of the remaining examples use ideas we've already covered, even if how we apply them gets more complicated.
 
 In this first example, we'll check if a point is inside a complex polygon. We define our polygon using a set of X/Y points called *vertices*. To store these points, we'll use an array of `PVector` objects. PVectors simply store X/Y (or X/Y/Z) coordinates. This makes storing points a little easier, and Processing gives us some fancy math for PVectors that would be tricky otherwise. If you haven't used PVectors before, read at least the first part of [this tutorial on the Processing site](https://processing.org/tutorials/pvector/) before continuing.
 

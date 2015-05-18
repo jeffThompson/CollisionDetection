@@ -74,7 +74,7 @@ void draw() {
 
   // draw the other square
   fill(0, 150);
-  rect(s1x,s1y, s1w,s1h);  
+  rect(s1x,s1y, s1w,s1h);
 }
 
 
@@ -95,6 +95,8 @@ boolean rectRect(float r1x, float r1y, float r1w, float r1h, float r2x, float r2
 
 <p>It's worth noting two important things here. First, the last two examples use squares, but any rectangle will work with this code. Second, this algorithm assumes you're using the default <code>rectMode(CORNER)</code>, which draws rectangles from the top corner and specifies width/height. If you want to use <code>rectMode(CENTER)</code>, you'll need to modify this algorithm (see the <a href="section_2_challenges.php">Challenge Questions</a> at the end of this section).</p>
 
-<p>Similar to the <a href="circle-circle.php">Circle/Circle</a> example, <strong>Rectangle/Rectangle</strong> collision can be used to draw "bounding boxes" around more complex shapes. However, what you gain in performance you lose in accuracy. If you've ever played a game and frustratedly shouted "I totally hit you!", you have probably experienced bounding boxes that don't quite line up with their objects. Find the right balance between actually being correct and what feels right for the user.</p>
+<p><img src="images/bounding-box.jpg"></p>
+
+<p>Similar to the <a href="circle-circle.php">Circle/Circle</a> example, <strong>Rectangle/Rectangle</strong> collision can be used to draw "bounding boxes" around more complex shapes. However, what you gain in performance you lose in accuracy. If you've ever played a game and frustratedly shouted "I totally hit you!" you have probably experienced bounding boxes that don't quite line up with their objects. Find the right balance between actually being correct and what feels right for the user.</p>
 
 <?php include('includes/footer.php'); ?>

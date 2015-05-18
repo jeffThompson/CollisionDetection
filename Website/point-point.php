@@ -52,7 +52,7 @@ void draw() {
   boolean colliding = pointPoint(px, py, targetX, targetY);
   if (colliding) {
     background(255, 150, 0);
-  } 
+  }
   else {
     background(255);
   }
@@ -77,6 +77,6 @@ boolean pointPoint(float x1, float y1, float x2, float y2) {
 }
 </code></pre>
 
-<p>Congrats, you've written your first program using collision! This basic structure will be the same in all the examples we'll build.  Of course, we could add some improvements to this algorithm. Try the challenge prompts at the end of this section and see if you can make it work better.</p>
+<p>Congrats, you've written your first program using collision! This basic structure will be the same in all the examples we'll build.  Of course, we could add some improvements to this algorithm. Try the <a href="section_1_challenges.php">challenge prompts</a> at the end of this section and see if you can make it work better.</p>
 
 <?php include('includes/footer.php'); ?>

@@ -105,7 +105,7 @@ A full example is below. Note that the red dots are drawn in the [Line/Line](lin
 	  return false;
 	}
 
-This algorithm can also be used to test [line-of-sight](http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29). Let's say you have two objects and an rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.
+This algorithm can also be used to test [line-of-sight](http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29). Let's say you have two objects and a rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.
 
 ![An example of line of sight](images/line-of-sight.jpg)
 

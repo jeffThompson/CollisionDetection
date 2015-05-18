@@ -50,8 +50,8 @@ if (hit) {
 
 <pre><code>float x1 = 0;    // line position (set by mouse)
 float y1 = 0;
-float x2 = 0;    // fixed end
-float y2 = 0;
+float x2 = 20;   // fixed end
+float y2 = 20;
 
 // array of PVectors, one for each vertex in the polygon
 PVector[] vertices = new PVector[16];
@@ -64,7 +64,7 @@ void setup() {
   strokeWeight(5);  // make the line easier to see
 
   // set position of the vertices - a regular polygon!
-  // based on this example: 
+  // based on this example:
   // https://processing.org/examples/regularpolygon.html
   float angle = TWO_PI / vertices.length;
   for (int i=0; i&lt;vertices.length; i++) {

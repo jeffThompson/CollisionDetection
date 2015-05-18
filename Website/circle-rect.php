@@ -12,13 +12,13 @@ float testY = cy;
 
 <p>Then we do the following tests:</p>
 
-<pre><code>If the circle is to the RIGHT of the square, check against square's RIGHT edge.
+<pre><code>If the circle is to the RIGHT of the square, check against the RIGHT edge.
 
-If the circle is to the LEFT of the square, check against square's LEFT edge.
+If the circle is to the LEFT of the square, check against the LEFT edge.
 
-If the circle is ABOVE the square, check against square's TOP edge.
+If the circle is ABOVE the square, check against the TOP edge.
 
-If the circle is to the BELOW the square, check against square's BOTTOM edge.
+If the circle is to the BELOW the square, check against the BOTTOM edge.
 </code></pre>
 
 <p>Here's how that works as an if statement:</p>
@@ -85,7 +85,7 @@ void draw() {
 
   // draw the circle
   fill(0, 150);
-  ellipse(cx,cy, r*2,r*2);  
+  ellipse(cx,cy, r*2,r*2);
 }
 
 

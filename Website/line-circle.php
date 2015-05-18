@@ -18,7 +18,7 @@ float distY = y1 - y2;
 float len = sqrt( (distX*distX) + (distY*distY) );
 </code></pre>
 
-<p>Next, we get a value we're calling <code>dot</code>. If you've done vector math before, this is the same as doing the <a href="http://en.wikipedia.org/wiki/Dot_product">dot product</a> of two vectors. If this isn't familiar, no worry! Consider this step a lot of math you can be glad not to have to solve by hand:</p>
+<p>Then, we get a value we're calling <code>dot</code>. If you've done vector math before, this is the same as doing the <a href="http://en.wikipedia.org/wiki/Dot_product">dot product</a> of two vectors. If this isn't familiar, no worry! Consider this step a lot of math you can be glad not to have to solve by hand:</p>
 
 <pre><code>float dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / pow(len,2);
 </code></pre>
@@ -44,7 +44,7 @@ distY = closestY - cy;
 float distance = sqrt( (distX*distX) + (distY*distY) );
 </code></pre>
 
-<p>If that distance is less than the radius, we have a collision (same as the <a href="point-circle.php">Point/Circle</a>).</p>
+<p>If that distance is less than the radius, we have a collision (same as <a href="point-circle.php">Point/Circle</a>).</p>
 
 <pre><code>if (distance &lt;= r) {
     return true;
@@ -88,7 +88,7 @@ void draw() {
   // draw the circle
   fill(0,150,255, 150);
   noStroke();
-  ellipse(cx,cy, r*2,r*2);  
+  ellipse(cx,cy, r*2,r*2);
 }
 
 
@@ -145,7 +145,7 @@ boolean pointCircle(float px, float py, float cx, float cy, float r) {
   float distY = py - cy;
   float distance = sqrt( (distX*distX) + (distY*distY) );
 
-  // if the distance is less than the circle's 
+  // if the distance is less than the circle's
   // radius the point is inside!
   if (distance &lt;= r) {
     return true;
@@ -170,7 +170,7 @@ boolean linePoint(float x1, float y1, float x2, float y2, float px, float py) {
 
   // if the two distances are equal to the line's
   // length, the point is on the line!
-  // note we use the buffer here to give a range, 
+  // note we use the buffer here to give a range,
   // rather than one #
   if (d1+d2 &gt;= lineLen-buffer &amp;&amp; d1+d2 &lt;= lineLen+buffer) {
     return true;

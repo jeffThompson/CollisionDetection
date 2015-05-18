@@ -4,13 +4,13 @@
 
 <p>Like the previous example, collision between a polygon and a rectangle really just requires us to extend existing functions. In this case, we can test if any of the edges of the rectangle are hitting any of the edges of the polygon.</p>
 
-<p>To do this, we test <a href="line-rectangle.php">Line/Rectangle</a> collision for each side of the polygon.</p>
+<p>To do this, we test <a href="line-rectangle.php">Line/Rectangle</a> collision for each side of the polygon. Like our previous exmaples, <code>vc</code> and <code>vn</code> are the two PVectors forming a side:</p>
 
 <pre><code>boolean collision = lineRect(vc.x,vc.y,vn.x,vn.y, rx,ry,rw,rh);
 if (collision) return true;
 </code></pre>
 
-<p>Also like the last example, we can catch the edge case where the rectangle is inside the polygon by testing if its X/Y position (a point) is inside the polygon. This should be left off unless necessary, since it requires going through all the vertices of the polygon again, slowing down your program.</p>
+<p>Also like the last example, we can catch the edge case where the rectangle is inside the polygon by testing if its X/Y position (a point) is inside the polygon. This should be left off unless necessary, since like our previous example it requires going through all the vertices of the polygon again, slowing down your program.</p>
 
 <pre><code>boolean inside = polygonPoint(vertices, rx,ry);
 if (inside) return true;
@@ -69,7 +69,7 @@ void draw() {
 // POLYGON/RECTANGLE
 boolean polyRect(PVector[] vertices, float rx, float ry, float rw, float rh) {
 
-  // go through each of the vertices, plus the next 
+  // go through each of the vertices, plus the next
   // vertex in the list
   int next = 0;
   for (int current=0; current&lt;vertices.length; current++) {
@@ -89,7 +89,7 @@ boolean polyRect(PVector[] vertices, float rx, float ry, float rw, float rh) {
     if (collision) return true;
 
     // optional: test if the rectangle is INSIDE the polygon
-    // note that this iterates all sides of the polygon 
+    // note that this iterates all sides of the polygon
     // again, so only use this if you need to
     boolean inside = polygonPoint(vertices, rx,ry);
     if (inside) return true;
@@ -134,12 +134,12 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
 
 
 // POLYGON/POINT
-// only needed if you're going to check if the rectangle 
+// only needed if you're going to check if the rectangle
 // is INSIDE the polygon
 boolean polygonPoint(PVector[] vertices, float px, float py) {
   boolean collision = false;
 
-  // go through each of the vertices, plus the next 
+  // go through each of the vertices, plus the next
   // vertex in the list
   int next = 0;
   for (int current=0; current&lt;vertices.length; current++) {
@@ -154,14 +154,14 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
     PVector vc = vertices[current];    // c for "current"
     PVector vn = vertices[next];       // n for "next"
 
-    // compare position, flip 'collision' variable 
+    // compare position, flip 'collision' variable
     // back and forth
     if (((vc.y &gt; py &amp;&amp; vn.y &lt; py) || (vc.y &lt; py &amp;&amp; vn.y &gt; py)) &amp;&amp;
          (px &lt; (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
             collision = !collision;
     }
   }
-  return collision;  
+  return collision;
 }
 </code></pre>
 

@@ -5,11 +5,11 @@ Here's a diagram demonstrating the triangles created for a point outside and ins
 
 ![Points outside and inside a triangle, forming three smaller triangles](images/tri-point.jpg)
 
-To get the area, we use the following formula:
+To get the area, we use [Heron's Forumula](http://en.wikipedia.org/wiki/Heron%27s_formula):
 
 	float areaOrig = abs( (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1) );
 
-This formula is called [Heron's Forumula](http://en.wikipedia.org/wiki/Heron%27s_formula). We need to calculate the area of the three triangles made from the point as well:
+We need to calculate the area of the three triangles made from the point as well:
 
 	float area1 =    abs( (x1-px)*(y2-py) - (x2-px)*(y1-py) );
   	float area2 =    abs( (x2-px)*(y3-py) - (x3-px)*(y2-py) );

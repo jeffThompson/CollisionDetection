@@ -4,7 +4,7 @@
 
 <h1>POLYGON/POLYGON</h1>
 
-<p>Our final polygon example checks for the collision of two polygons. Since we really just need to check if any of the sides of one polygon are hitting any of the sides of the other, this is pretty straight-forward! As before, we also test if the one polygon is fully inside the other one.</p>
+<p>Our final example in this section checks for the collision of two polygons. Since we really just need to check if any of the sides of one polygon are hitting any of the sides of the other, this is pretty straight-forward! As before, we also test if the one polygon is fully inside the other one.</p>
 
 <p>Here's the full example:</p>
 
@@ -108,7 +108,7 @@ boolean polyPoly(PVector[] p1, PVector[] p2) {
 // POLYGON/LINE
 boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
 
-  // go through each of the vertices, plus the next 
+  // go through each of the vertices, plus the next
   // vertex in the list
   int next = 0;
   for (int current=0; current&lt;vertices.length; current++) {
@@ -126,7 +126,7 @@ boolean polyLine(PVector[] vertices, float x1, float y1, float x2, float y2) {
     float y4 = vertices[next].y;
 
     // do a Line/Line comparison
-    // if true, return 'true' immediately and 
+    // if true, return 'true' immediately and
     // stop testing (faster)
     boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
     if (hit) {
@@ -182,7 +182,7 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
             collision = !collision;
     }
   }
-  return collision;  
+  return collision;
 }
 </code></pre>
 

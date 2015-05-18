@@ -194,11 +194,11 @@ Since `polyCircle()` calls `lineCircle()` which calls `linePoint()`, we could co
 
 But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These situations are called "edge cases", ones that require a different set of parameters to check for. 
 
-In most situations, we don't to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).
+In most situations, we don't need to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).
 
 If you do need to know if the circle is inside the polygon, you can add two more lines to the `polyCircle()` function (right before the final `return false;`) to test if the center of the circle is inside the polygon:
 
 	boolean centerInside = polygonPoint(cx,cy, vertices);
   	if (centerInside) return true;
 
-We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow your program down.
+We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow down your program.

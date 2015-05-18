@@ -9,7 +9,7 @@
 <p>Try these challenge prompts to modify the code we've written. Don't get frustrated if you can't figure them all out &mdash; some are intended for more practiced programmers:</p>
 
 <ol>
-<li>Try changing the colors of the objects when they collide (hint: look in the <code>draw()</code> section).  </li>
+<li>Try changing the colors of the objects when they collide. Hint: look in the <code>draw()</code> section.  </li>
 <li>Can you make something else interesting happen when collision occurs? Objects change size, move across the screen, etc?  </li>
 <li>Our <a href="point-point.php">Point/Point</a> collision is very finicky: you have to be in the <em>exact</em> location of the other point for the collision to trigger. Can you modify the code to include a "buffer zone" where collision happens, even if the two points aren't actually touching?  </li>
 </ol>

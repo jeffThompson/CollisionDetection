@@ -53,6 +53,12 @@ img + h4 {
 	margin-top:			1.3em;
 }
 
+/* re-apply superscript formatting */
+sup {
+	vertical-align:  	super;
+	font-size:			smaller;
+}
+
 /* PARAGRAPHS */
 p, figcaption {
 	font-size:			19px;
@@ -73,9 +79,6 @@ em {
 figcaption {
 	font-style:			italic;
 	text-align:			center;
-}
-h1 ~ figcaption {
-	margin-top:			-2em;
 }
 
 /* LISTS */

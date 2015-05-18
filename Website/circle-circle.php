@@ -82,7 +82,7 @@ boolean circleCircle(float c1x, float c1y, float c1r, float c2x, float c2y, floa
 
 <p><img src="images/bounding-circle.jpg" alt="An example of a bounding circle" title=""></p>
 
-<figcaption>While it includes some areas that aren't part of the shape, a circle is a good approximation of this [dodecagon](http://en.wikipedia.org/wiki/Dodecagon)</figcaption>
+<figcaption>While it includes some areas that aren't part of the shape, a circle is a good approximation of this <a href="http://en.wikipedia.org/wiki/Dodecagon">dodecagon</a>.</figcaption>
 
 <p>You may be wondering why we are only talking about circles and not ellipses. It might seem fairly similar, but the math for <a href="http://stackoverflow.com/questions/2945337/how-to-detect-if-an-ellipse-intersectscollides-with-a-circle">ellipse collision is actually quite complicated</a>. Consider it a great challenge once you master the other collision examples!</p>
 

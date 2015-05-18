@@ -216,4 +216,6 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
 
 <p>Note that our code is a bit long with all the classes, so the actual Processing file is broken up into separate tabs. This would be a good idea for projects that require several collision functions. You could name the tab "CollisionFunctions" and keep all the code there.</p>
 
+<p>You can see another, more complex example of object-oriented collision in the <a href="index.php">Introduction</a>. It uses a class for circles, rectangles, and lines.</p>
+
 <?php include('includes/footer.php'); ?>

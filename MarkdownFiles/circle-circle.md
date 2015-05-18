@@ -75,6 +75,6 @@ Built into a full example, it looks like this:
 **Circle/Circle** collision can be used to create "bounding circles" around more complex objects. While sacrificing accuracy, this kind of collision detection is very fast and can be a good approximation.
 
 ![An example of a bounding circle](images/bounding-circle.jpg)
-<figcaption>While it includes some areas that aren't part of the shape, a circle is a good approximation of this [dodecagon](http://en.wikipedia.org/wiki/Dodecagon)</figcaption>
+<figcaption>While it includes some areas that aren't part of the shape, a circle is a good approximation of this <a href="http://en.wikipedia.org/wiki/Dodecagon">dodecagon</a>.</figcaption>
 
 You may be wondering why we are only talking about circles and not ellipses. It might seem fairly similar, but the math for [ellipse collision is actually quite complicated](http://stackoverflow.com/questions/2945337/how-to-detect-if-an-ellipse-intersectscollides-with-a-circle). Consider it a great challenge once you master the other collision examples!

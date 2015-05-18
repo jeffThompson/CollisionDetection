@@ -64,7 +64,7 @@ void draw() {
 // POLYGON/CIRCLE
 boolean polyCircle(PVector[] vertices, float cx, float cy, float r) {
 
-  // go through each of the vertices, plus 
+  // go through each of the vertices, plus
   // the next vertex in the list
   int next = 0;
   for (int current=0; current&lt;vertices.length; current++) {
@@ -86,7 +86,7 @@ boolean polyCircle(PVector[] vertices, float cx, float cy, float r) {
   }
 
   // the above algorithm only checks if the circle
-  // is touching the edges of the polygon – in most 
+  // is touching the edges of the polygon – in most
   // cases this is enough, but you can un-comment the
   // following code to also test if the center of the
   // circle is inside the polygon
@@ -158,7 +158,7 @@ boolean linePoint(float x1, float y1, float x2, float y2, float px, float py) {
   // than one #
   if (d1+d2 &gt;= lineLen-buffer &amp;&amp; d1+d2 &lt;= lineLen+buffer) {
     return true;
-  }  
+  }
   return false;
 }
 
@@ -191,7 +191,7 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
             collision = !collision;
     }
   }
-  return collision;  
+  return collision;
 }
 </code></pre>
 
@@ -199,7 +199,7 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
 
 <p>But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These situations are called "edge cases", ones that require a different set of parameters to check for. </p>
 
-<p>In most situations, we don't to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).</p>
+<p>In most situations, we don't need to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).</p>
 
 <p>If you do need to know if the circle is inside the polygon, you can add two more lines to the <code>polyCircle()</code> function (right before the final <code>return false;</code>) to test if the center of the circle is inside the polygon:</p>
 
@@ -207,6 +207,6 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
 if (centerInside) return true;
 </code></pre>
 
-<p>We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow your program down.</p>
+<p>We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow down your program.</p>
 
 <?php include('includes/footer.php'); ?>

@@ -13,7 +13,7 @@ Next, we need to get closest point on the line. To start, let's get the length o
 	float distY = y1 - y2;
 	float len = sqrt( (distX*distX) + (distY*distY) );
 
-Next, we get a value we're calling `dot`. If you've done vector math before, this is the same as doing the [dot product](http://en.wikipedia.org/wiki/Dot_product) of two vectors. If this isn't familiar, no worry! Consider this step a lot of math you can be glad not to have to solve by hand:
+Then, we get a value we're calling `dot`. If you've done vector math before, this is the same as doing the [dot product](http://en.wikipedia.org/wiki/Dot_product) of two vectors. If this isn't familiar, no worry! Consider this step a lot of math you can be glad not to have to solve by hand:
 
 	float dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / pow(len,2);
 
@@ -35,7 +35,7 @@ Finally, we get the distance from the circle to the closest point on the line, o
 	distY = closestY - cy;
 	float distance = sqrt( (distX*distX) + (distY*distY) );
 
-If that distance is less than the radius, we have a collision (same as the [Point/Circle](point-circle.php)).
+If that distance is less than the radius, we have a collision (same as [Point/Circle](point-circle.php)).
 
 	if (distance <= r) {
 		return true;

@@ -14,10 +14,10 @@ float rh = 30;  // height
 
 <p>To see if a point is inside the square, we have to test:</p>
 
-<pre><code>Is the point's X position to the RIGHT of the LEFT EDGE?
-Is the point's X position to the LEFT of the RIGHT EDGE?
-Is the point's Y position BELOW the TOP EDGE?
-Is the point's Y position ABOVE the BOTTOM EDGE?
+<pre><code>Is the X position of the point to the RIGHT of the LEFT EDGE?
+Is the X position of the point to the LEFT of the RIGHT EDGE?
+Is the Y position of the point BELOW the TOP EDGE?
+Is the Y position of the point ABOVE the BOTTOM EDGE?
 </code></pre>
 
 <p>If all of these are true, then the point is inside. Let's look at testing the left edge first. Since the default mode for the <code>rect()</code> command draws from the upper-left corner, the left edge is at <code>rx</code>:</p>
@@ -44,7 +44,7 @@ if (px &lt;= rightEdge) {
 <pre><code>if (px &gt;= rx &amp;&amp;         // right of the left edge AND
     px &lt;= rx + rw &amp;&amp;    // left of the right edge AND
     py &gt;= ry &amp;&amp;         // below the top AND
-    py &lt;= ry + rh) {    // above the bottom 
+    py &lt;= ry + rh) {    // above the bottom
         return true;
 }
 return false;
@@ -92,7 +92,7 @@ void draw() {
 
   // draw the point
   stroke(0);
-  point(px,py);  
+  point(px,py);
 }
 
 
@@ -103,7 +103,7 @@ boolean pointRect(float px, float py, float rx, float ry, float rw, float rh) {
   if (px &gt;= rx &amp;&amp;        // right of the left edge AND
       px &lt;= rx + rw &amp;&amp;   // left of the right edge AND
       py &gt;= ry &amp;&amp;        // below the top AND
-      py &lt;= ry + rh) {   // above the bottom 
+      py &lt;= ry + rh) {   // above the bottom
         return true;
   }
   return false;

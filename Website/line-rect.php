@@ -80,7 +80,7 @@ boolean lineRect(float x1, float y1, float x2, float y2, float rx, float ry, flo
   boolean top =    lineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry);
   boolean bottom = lineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh);
 
-  // if ANY of the above are true, the line 
+  // if ANY of the above are true, the line
   // has hit the rectangle
   if (left || right || top || bottom) {
     return true;
@@ -112,7 +112,7 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
 }
 </code></pre>
 
-<p>This algorithm can also be used to test <a href="http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29">line-of-sight</a>. Let's say you have two objects and an rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.</p>
+<p>This algorithm can also be used to test <a href="http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29">line-of-sight</a>. Let's say you have two objects and a rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.</p>
 
 <p><img src="images/line-of-sight.jpg" alt="An example of line of sight" title=""></p>
 

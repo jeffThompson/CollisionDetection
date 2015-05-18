@@ -72,4 +72,4 @@ With our very first collision detection function in hand, we can build a useful 
       return false;
     }
 
-Congrats, you've written your first program using collision! This basic structure will be the same in all the examples we'll build.  Of course, we could add some improvements to this algorithm. Try the challenge prompts at the end of this section and see if you can make it work better.
+Congrats, you've written your first program using collision! This basic structure will be the same in all the examples we'll build.  Of course, we could add some improvements to this algorithm. Try the [challenge prompts](section_1_challenges.php) at the end of this section and see if you can make it work better.

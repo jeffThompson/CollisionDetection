@@ -2,7 +2,7 @@
 
 <h1>POLYGON/POINT</h1>
 
-<p>Circle and rectangle collisions are great, and often simplifying the collision of complex shapes using bounding boxes and circles makes sense. But there are times when we want more accuracy. Fortunately, most of the remaining examples use ideas we've already covered, even if how we apply them gets more complicated.</p>
+<p>Circle and rectangle collisions are great, and oftentimes simplifying the collision of complex shapes using bounding boxes and circles makes sense. But there are applications when we want more accuracy. Fortunately, most of the remaining examples use ideas we've already covered, even if how we apply them gets more complicated.</p>
 
 <p>In this first example, we'll check if a point is inside a complex polygon. We define our polygon using a set of X/Y points called <em>vertices</em>. To store these points, we'll use an array of <code>PVector</code> objects. PVectors simply store X/Y (or X/Y/Z) coordinates. This makes storing points a little easier, and Processing gives us some fancy math for PVectors that would be tricky otherwise. If you haven't used PVectors before, read at least the first part of <a href="https://processing.org/tutorials/pvector/">this tutorial on the Processing site</a> before continuing.</p>
 
@@ -93,7 +93,7 @@ void setup() {
   strokeWeight(5);  // make the point easier to see
 
   // set position of the vertices
-  // here we draw a distorted trapezoid, but 
+  // here we draw a distorted trapezoid, but
   // you could make much more complex shapes
   // or even randomize the points!
   vertices[0] = new PVector(200,100);
@@ -156,7 +156,7 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
             collision = !collision;
     }
   }
-  return collision;  
+  return collision;
 }
 </code></pre>
 

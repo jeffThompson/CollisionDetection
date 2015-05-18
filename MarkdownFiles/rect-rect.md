@@ -88,4 +88,6 @@ Here's a full example:
 
 It's worth noting two important things here. First, the last two examples use squares, but any rectangle will work with this code. Second, this algorithm assumes you're using the default `rectMode(CORNER)`, which draws rectangles from the top corner and specifies width/height. If you want to use `rectMode(CENTER)`, you'll need to modify this algorithm (see the [Challenge Questions](section_2_challenges.php) at the end of this section).
 
-Similar to the [Circle/Circle](circle-circle.php) example, **Rectangle/Rectangle** collision can be used to draw "bounding boxes" around more complex shapes. However, what you gain in performance you lose in accuracy. If you've ever played a game and frustratedly shouted "I totally hit you!", you have probably experienced bounding boxes that don't quite line up with their objects. Find the right balance between actually being correct and what feels right for the user.
+![Example of a bounding box](images/bounding-box.jpg)
+
+Similar to the [Circle/Circle](circle-circle.php) example, **Rectangle/Rectangle** collision can be used to draw "bounding boxes" around more complex shapes. However, what you gain in performance you lose in accuracy. If you've ever played a game and frustratedly shouted "I totally hit you!" you have probably experienced bounding boxes that don't quite line up with their objects. Find the right balance between actually being correct and what feels right for the user.

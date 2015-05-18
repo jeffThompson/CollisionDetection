@@ -8,13 +8,13 @@ Our code will first test which edge of the rectangle is closest to the circle, t
 
 Then we do the following tests:
 
-	If the circle is to the RIGHT of the square, check against square's RIGHT edge.
-	
-	If the circle is to the LEFT of the square, check against square's LEFT edge.
-	
-	If the circle is ABOVE the square, check against square's TOP edge.
-	
-	If the circle is to the BELOW the square, check against square's BOTTOM edge.
+	If the circle is to the RIGHT of the square, check against the RIGHT edge.
+
+	If the circle is to the LEFT of the square, check against the LEFT edge.
+
+	If the circle is ABOVE the square, check against the TOP edge.
+
+	If the circle is to the BELOW the square, check against the BOTTOM edge.
 
 Here's how that works as an if statement:
   

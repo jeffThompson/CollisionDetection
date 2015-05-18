@@ -4,7 +4,7 @@
 
 <p><a href="point-point.php">Point/Point</a> collision was very easy, but from here on out we'll need some basic math to check if objects are touching each other. Testing if a point is inside a circle requires us to remember back to middle school math class and the <a href="http://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean Theorem</a>:</p>
 
-<pre><code>a2 + b2 = c2
+<pre><code>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
 </code></pre>
 
 <p>We can get the length of the long edge of a triangle <code>c</code> given the length of the other two sides. Translated to code, it looks like this:</p>
@@ -93,7 +93,7 @@ boolean pointCircle(float px, float py, float cx, float cy, float r) {
   float distY = py - cy;
   float distance = sqrt( (distX*distX) + (distY*distY) );
 
-  // if the distance is less than the circle's 
+  // if the distance is less than the circle's
   // radius the point is inside!
   if (distance &lt;= r) {
     return true;
@@ -104,6 +104,6 @@ boolean pointCircle(float px, float py, float cx, float cy, float r) {
 
 <p>This method using the Pythagorean Theorem will come back many times. Processing has a built-in <code>dist()</code> function, if you prefer, though we'll keep the math in place as a reference.</p>
 
-<p>One caveat: if you have a very fast-moving object, it can sometimes go right through its target without a collision being triggered! This is sometimes referred to as the "bullet through paper" problem. There are lots of solutions, but a good place to start would be <a href="http://gamedev.stackexchange.com/questions/22765/how-do-i-check-collision-when-firing-bullet">this GameDev.net post</a>. A main way for detecting this is called <a href="http://en.wikipedia.org/wiki/Collision_detection#A_posteriori_.28discrete.29_versus_a_priori_.28continuous.29">"Continuous Collision Detection"</a> or CCD.</p>
+<p>One caveat: if you have a very fast-moving object, it can sometimes go right through its target without a collision being triggered! This is sometimes referred to as the "bullet through paper" problem. There are lots of solutions, but a good place to start would be <a href="http://gamedev.stackexchange.com/questions/22765/how-do-i-check-collision-when-firing-bullet">this GameDev.net post</a>. A standard way for detecting this is called <a href="http://en.wikipedia.org/wiki/Collision_detection#A_posteriori_.28discrete.29_versus_a_priori_.28continuous.29">"Continuous Collision Detection"</a> or CCD.</p>
 
 <?php include('includes/footer.php'); ?>
