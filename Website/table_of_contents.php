@@ -11,7 +11,7 @@
 <ul>
 <li><a href="index.php">Introduction</a>  </li>
 <li><a href="license.php">License</a>  </li>
-<li><a href="what_you_should_already_know.md">What You Should Already Know</a>  </li>
+<li><a href="what_you_should_already_know.php">What You Should Already Know</a>  </li>
 </ul>
 
 <h3>SECTION 1</h3>
