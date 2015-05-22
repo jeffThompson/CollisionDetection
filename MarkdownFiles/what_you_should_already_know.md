@@ -26,7 +26,13 @@ Functions can also receive *arguments*, or parameters that are fed into them. An
 		return a + b;
 	} 
 
-All of the examples in this book are functions. They are fed parameters of the objects to be tested (such as position or size) and return a `boolean` value whether or not a collision is happening. They could also be modified to return the position of the collision, such as in the [Line/Line](line-line.php) example.
+Once finished, you can use the function elsewhere in your code. For example, our `sum()` function above can be used like this:
+
+	int result = sum(2, 2);
+	println(result);
+	>> 4
+
+All of the examples in this book are functions. They are fed parameters of the objects to be tested (such as position or size) and return a `boolean` value whether or not a collision is happening. They could also be modified to return the position of the collision, such as in the [Line/Line](line-line.php) example. Be sure to look at the full code at the end of each example to see how the function is structured and called.
 
 ## FLOATS  
 You'll notice throughout this book that we use floating-point variables. This is for a few reasons. 

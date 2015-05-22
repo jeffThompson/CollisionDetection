@@ -30,7 +30,14 @@
 }
 </code></pre>
 
-<p>All of the examples in this book are functions. They are fed parameters of the objects to be tested (such as position or size) and return a <code>boolean</code> value whether or not a collision is happening. They could also be modified to return the position of the collision, such as in the <a href="line-line.php">Line/Line</a> example.</p>
+	<p>Once finished, you can use the function elsewhere in your code. For example, our <code>sum()</code> function above can be used like this:</p>
+
+<pre><code>int result = sum(2, 2);
+println(result);
+>> 4
+</code></pre>
+
+<p>All of the examples in this book are functions. They are fed parameters of the objects to be tested (such as position or size) and return a <code>boolean</code> value whether or not a collision is happening. They could also be modified to return the position of the collision, such as in the <a href="line-line.php">Line/Line</a> example. Be sure to look at the full code at the end of each example to see how the function is structured and called.</p>
 
 <h2>FLOATS</h2>
 
