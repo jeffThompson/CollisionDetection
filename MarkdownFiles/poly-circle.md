@@ -98,6 +98,12 @@ Here's the full example:
 	// LINE/CIRCLE
 	boolean lineCircle(float x1, float y1, float x2, float y2, float cx, float cy, float r) {
 
+      // is either end INSIDE the circle?
+      // if so, return true immediately
+      boolean inside1 = pointCircle(x1,y1, cx,cy,r);
+      boolean inside2 = pointCircle(x2,y2, cx,cy,r);
+      if (inside1 || inside2) return true;
+
 	  // get length of the line
 	  float distX = x1 - x2;
 	  float distY = y1 - y2;
