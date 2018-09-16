@@ -52,7 +52,7 @@ PVector vn = vertices[next];       // n for "next"
 
 <p>There are two tests happening here. The first checks if the point is between the two vertices in the Y direction:</p>
 
-<pre><code>(vc.y &gt; py &amp;&amp; vn.y &lt; py) || (vc.y &lt; py &amp;&amp; vn.y &gt; py)
+<pre><code>(vc.y &gt;= py &amp;&amp; vn.y &lt; py) || (vc.y &lt; py &amp;&amp; vn.y &gt;= py)
 </code></pre>
 
 <p>We test if the point is either above <code>vc.y</code> and below <code>vn.y</code>, or below <code>vc.y</code> and above <code>vn.y</code>. Here's what this looks like visually:</p>
@@ -151,7 +151,7 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
 
     // compare position, flip 'collision' variable
     // back and forth
-    if (((vc.y &gt; py &amp;&amp; vn.y &lt; py) || (vc.y &lt; py &amp;&amp; vn.y &gt; py)) &amp;&amp;
+    if (((vc.y &gt;= py &amp;&amp; vn.y &lt; py) || (vc.y &lt; py &amp;&amp; vn.y &gt;= py)) &amp;&amp;
          (px &lt; (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
             collision = !collision;
     }

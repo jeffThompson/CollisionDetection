@@ -75,7 +75,7 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
     
     // compare position, flip 'collision' variable back and forth
     //((vc.y > py) != (vn.y > py)) &&
-    if ( ((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+    if ( ((vc.y >= py && vn.y < py) || (vc.y < py && vn.y >= py)) &&
          (px < (vn.x-vc.x) * (py-vc.y) / (vn.y-vc.y) + vc.x) ) {
             collision = !collision;
     }

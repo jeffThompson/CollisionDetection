@@ -43,7 +43,7 @@ Now for the if statement. We can access the X/Y coordinates of each vertex using
 
 There are two tests happening here. The first checks if the point is between the two vertices in the Y direction:
 
-	(vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)
+	(vc.y >= py && vn.y < py) || (vc.y < py && vn.y >= py)
 
 We test if the point is either above `vc.y` and below `vn.y`, or below `vc.y` and above `vn.y`. Here's what this looks like visually:
 
@@ -138,7 +138,7 @@ Here's a full example with everything together:
 	    
 	    // compare position, flip 'collision' variable
 	    // back and forth
-	    if (((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+	    if (((vc.y >= py && vn.y < py) || (vc.y < py && vn.y >= py)) &&
              (px < (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
         		collision = !collision;
     	}
