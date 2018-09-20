@@ -25,8 +25,8 @@ float len = sqrt( (distX*distX) + (distY*distY) );
 
 <p>Finally, we can use this equation to find the closest point on the line:</p>
 
-<pre><code>float closestX = x1 + (r * (x2-x1));
-float closestY = y1 + (r * (y2-y1));
+<pre><code>float closestX = x1 + (dot * (x2-x1));
+float closestY = y1 + (dot * (y2-y1));
 </code></pre>
 
 <p>However, this returns a point anywhere on the line as it extends to infinity in both directions. In other words, it could give us a point off the end of the line! So let's check if that closest point is actually on the line using the <a href="line-point.php">Line/Point</a> algorithm we just made. This is the first of many times we'll nest previous functions when working on more complex collisions.</p>
