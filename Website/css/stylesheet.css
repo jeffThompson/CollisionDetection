@@ -20,7 +20,7 @@ html, body {
 
 	/* fonts */
 	font-family: 		'Lora', serif;
-	font-size: 			24px;
+	font-size: 			20px;
 	color: 				black;
 }
 
@@ -235,14 +235,14 @@ header {
 /* next page link in footer */
 .nextPage {
 	text-align: 		center;
-	background-color: 	rgba(245,245,245, 1);
+	background-color: 	rgb(245,245,245);
 	border: 		  	1px solid rgb(200,200,200);
 	padding: 			1em;
 	margin: 			1.6em 0 1.3em 0;
 	text-align: 		center;
 }
 .nextPage:hover {
-	background-color: 	rgba(255,255,0, 1);
+	background-color: 	rgb(255,255,0);
 }
 
 
@@ -269,11 +269,12 @@ canvas {
 
 /* UPDATE CALLOUT BOX */
 .callout {
-	background-color: 	rgba(0,150,255, 0.15);
+	background-color: 	rgb(217,239,255);
 	border: 		  	1px solid rgb(200,200,200);
 	padding: 			1em;
 	margin-bottom: 		1.3em;
 	text-align: 		center;
+	visibility:			visible !important; /* ios hack? */
 }
 
 
@@ -284,7 +285,7 @@ canvas {
 
 
 /* SMALL SCREENS */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
 	#wrapper {
 		width:			600px;
 		font-size: 		19px;
