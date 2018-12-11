@@ -1,9 +1,10 @@
 # Collision Detection
+
+> **UPDATE!** This site has been getting lots of visits which is awesome. I've made some changes so it will look better on mobile devices, make navigation easier, and tried to look over everything for mistakes. If you have any problems or suggestions, please [post an issue on the project repository](https://github.com/jeffThompson/CollisionDetection/issues). Thanks!
+
 The collision of objects underlies most game experiences and user-interfaces. Baseball bats collide with balls, zombies bump into walls, and Mario lands on platforms and stomps turtles. Even something as simple as clicking a button (a rectangle) with your mouse (a point) is a collision.
 
 This book explains the algorithms behind those collisions using basic shapes like circles, rectangles, and lines so you can implement them into your own projects.
-
-> **UPDATE!** This site has been getting lots of visits which is awesome. I've made some changes so it will look better on mobile devices, make navigation easier, and tried to look over everything for mistakes. If you have any problems or suggestions, please [post an issue on the project repository](https://github.com/jeffThompson/CollisionDetection/issues). Thanks!
 
 View the book, including interactive examples: [jeffreythompson.org/collision-detection](http://www.jeffreythompson.org/collision-detection)
 
