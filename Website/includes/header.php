@@ -3,9 +3,27 @@
 <head>
 
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<link rel="icon" type="image/png" href="http://www.jeffreythompson.org/graphics/favicon.png">
 	<title>Collision Detection</title>
+
+	<!-- dublin core -->
+	<meta name="dc.title" CONTENT="Collision Detection">
+	<meta name="dc.creator" CONTENT="Jeff Thompson">
+	<meta name="dc.date" CONTENT="2018-12-11">
+	<meta name="dc.type" CONTENT="Interactive Resource">
+	<meta name="dc.format" CONTENT="HTML">
+	<meta name="dc.language" CONTENT="en-US">
+	<meta name="dc.rights" CONTENT="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+
+	<!-- social media cards -->
+	<meta property="og:title" content="Collision Detection">
+	<meta property="og:description" content="An online book about collision detection using Processing.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="http://www.jeffreythompson.org/collision-detection/images/social-thumbnail.jpg">
+	<meta property="og:url" content="http://www.jeffreythompson.org/collision-detection">
+	<meta name="twitter:card" content="An online book about collision detection using Processing.">
+	<meta property="og:site_name" content="Collision Detection">
 
 	<?php
 		$order = array( 'index', 'table_of_contents', 'license', 'what_you_should_already_know', 'point-point', 'point-circle', 'circle-circle', 'section_1_challenges', 'point-rect', 'rect-rect', 'circle-rect', 'section_2_challenges', 'line-point', 'line-circle', 'line-line', 'line-rect', 'section_3_challenges', 'poly-point', 'poly-circle', 'poly-rect', 'poly-line', 'poly-poly', 'section_4_challenges', 'tri-point', 'where_are_the_other_triangle_examples', 'section_5_challenges', 'object_oriented_collision', 'thanks' );
