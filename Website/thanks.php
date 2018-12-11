@@ -24,6 +24,6 @@
 <li><a href="https://jquery.com/">JQuery</a>, <a href="https://www.mamp.info">MAMP</a>, and other free and open-source development tools used to make this project  </li>
 </ul>
 
-<p>And if you've found this code helpful in your projects, please do let me know!</p>
+<p class="callout"><strong>That's it!</strong> If you found this book helpful or built something cool with these examples, please let me know!</p>
 
 <?php include('includes/footer.php'); ?>

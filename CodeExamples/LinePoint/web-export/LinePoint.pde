@@ -7,20 +7,22 @@ LINE/POINT
  
  */
 
-float px = 0;     // point position (set by mouse)
+float px = 0;         // point position (set by mouse)
 float py = 0;
 
-float x1 = 100;   // line defined by two points
-float y1 = 300;
-float x2 = 500;
-float y2 = 100;
+float x1,y1, x2,y2;   // line defined by two points
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);  // make things a little easier to see
+  strokeWeight(15);  // make things a little easier to see
+
+  x1 = 100;
+  y1 = height-100;
+  x2 = width-100;
+  y2 = 100;
 }
 
 

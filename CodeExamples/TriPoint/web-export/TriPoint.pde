@@ -8,19 +8,23 @@ Jeff Thompson | 2015 | ww.jeffreythompson.org
 float px = 0;        // point (set by mouse)
 float py = 0;
 
-float x1 = 300;      // three points of the triangle
-float y1 = 100;
-float x2 = 450;
-float y2 = 300;
-float x3 = 150;
-float y3 = 300;
+float x1, y1;        // three points of the triangle
+float x2, y2;
+float x3, y3;
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);   // make point easier to see
+  strokeWeight(15);   // make point easier to see
+
+  x1 = width/2;
+  y1 = 100;
+  x2 = width/2+150;
+  y2 = height-100;
+  x3 = width/2-150;
+  y3 = height-100;
 }
 
 

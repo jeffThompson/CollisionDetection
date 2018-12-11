@@ -11,21 +11,23 @@ LINE/LINE
  
  */
 
-float x1 = 0;    // line controlled by mouse
+float x1 = 0;        // line controlled by mouse
 float y1 = 0;
-float x2 = 20;   // fixed end
+float x2 = 20;       // fixed end
 float y2 = 20;
 
-float x3 = 100;  // static line
-float y3 = 300;
-float x4 = 500;
-float y4 = 100;
+float x3,y3, x4,y4;  // static line
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   
-  strokeWeight(5);  // make lines easier to see
+  strokeWeight(15);  // make lines easier to see
+
+  x3 = 100;
+  y3 = height-100;
+  x4 = width-100;
+  y4 = 100;
 }
 
 

@@ -15,10 +15,10 @@ PVector[] vertices = new PVector[16];
 
 
 void setup() {
-  size(600, 400);
+  size($("#wrapper").width(), 400);
   noCursor();
 
-  strokeWeight(5);  // make the line easier to see
+  strokeWeight(15);  // make the line easier to see
 
   // set position of the vertices - a regular polygon!
   // based on this example: 
@@ -26,8 +26,8 @@ void setup() {
   float angle = TWO_PI / vertices.length;
   for (int i=0; i<vertices.length; i++) {
     float a = angle * i;
-    float x = 300 + cos(a) * 100;
-    float y = 200 + sin(a) * 100;
+    float x = width/2 + cos(a) * 100;
+    float y = height/2 + sin(a) * 100;
     vertices[i] = new PVector(x,y);
   }
 }

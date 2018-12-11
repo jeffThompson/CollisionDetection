@@ -13,18 +13,18 @@ PVector[] vertices = new PVector[4];
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);  // make the point easier to see
+  strokeWeight(15);  // make the point easier to see
   
   // set position of the vertices
   // here we draw a distorted trapezoid, but you could
   // make much more complex shapes, or even randomize the points!
-  vertices[0] = new PVector(200,100);
-  vertices[1] = new PVector(400,130);
-  vertices[2] = new PVector(350,300);
-  vertices[3] = new PVector(250,300);
+  vertices[0] = new PVector(width/2-100, height/2-100);
+  vertices[1] = new PVector(width/2+100, height/2-100);
+  vertices[2] = new PVector(width/2+50,  height/2+100);
+  vertices[3] = new PVector(width/2-50,  height/2+100);
 }
 
 

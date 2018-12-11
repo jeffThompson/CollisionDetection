@@ -5,16 +5,18 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 
 */
 
-float px, py;           // point controlled by the mouse
-float targetX = 300;    // target point coordinates
-float targetY = 200;
+float px, py;             // point controlled by the mouse
+float targetX, targetY;   // target point coordinates
 
 
 void setup() {
-  size(600, 400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);    // thicker stroke so points are easier to see
+  strokeWeight(15);    // thicker stroke so points are easier to see
+
+  targetX = width/2;
+  targetY = height/2;
 }
 
 
@@ -44,13 +46,26 @@ void draw() {
 
 
 // POINT/POINT
+// (note this version includes a "buffer" zone around the points to
+//  make collision feel more natural instead of being just a 1px zone)
 boolean pointPoint(float x1, float y1, float x2, float y2) {
   
-  // are the two points in the same location?
-  if (x1 == x2 && y1 == y2) {
+  // treat the points like circles
+  float buffer = 3;
+  float distX = x1-x2;
+  float distY = y1-y2;
+  float distance = sqrt( (distX*distX) + (distY*distY) );
+  if (distance <= buffer*2) {
     return true;
   }
   return false;
+
+  // original code
+  // are the two points in the same location?
+  //if (x1 == x2 && y1 == y2) {
+  //  return true;
+  //}
+  //return false;
 }
 
 

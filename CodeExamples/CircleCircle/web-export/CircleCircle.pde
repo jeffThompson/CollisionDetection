@@ -9,14 +9,16 @@ int c1x = 0;      // circle 1 position (controlled by mouse)
 int c1y = 0;
 int c1r = 30;     // radius
 
-int c2x = 300;    // circle 2 position
-int c2y = 200;
+int c2x, c2y;     // circle 2 position
 int c2r = 100;
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noStroke();
+
+  c2x = width/2;
+  c2y = height/2;
 }
 
 

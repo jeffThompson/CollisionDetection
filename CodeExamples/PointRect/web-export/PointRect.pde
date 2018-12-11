@@ -8,17 +8,19 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 float px = 0;      // point position (move with mouse)
 float py = 0;
 
-float sx = 200;    // square position
-float sy = 100;
+float sx, sy;      // square position
 float sw = 200;    // and dimensions
 float sh = 200;
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);    // thicker stroke so points are easier to see
+  strokeWeight(15);    // thicker stroke so points are easier to see
+
+  sx = width/2-sw/2;
+  sy = height/2-sh/2;
 }
 
 

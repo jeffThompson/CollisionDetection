@@ -10,7 +10,7 @@ int numEach = 50;
 // circle, controlled by the mouse
 float cx = 0;
 float cy = 0;
-float cr =  30;
+float cr = 30;
 
 // lots of other objects!
 ArrayList<Circle> circles = new ArrayList<Circle>();

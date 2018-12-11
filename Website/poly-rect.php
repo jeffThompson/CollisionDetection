@@ -6,19 +6,19 @@
 
 <p>To do this, we test <a href="line-rectangle.php">Line/Rectangle</a> collision for each side of the polygon. Like our previous exmaples, <code>vc</code> and <code>vn</code> are the two PVectors forming a side:</p>
 
-<pre><code>boolean collision = lineRect(vc.x,vc.y,vn.x,vn.y, rx,ry,rw,rh);
+<pre>boolean collision = lineRect(vc.x,vc.y,vn.x,vn.y, rx,ry,rw,rh);
 if (collision) return true;
-</code></pre>
+</pre>
 
 <p>Also like the last example, we can catch the edge case where the rectangle is inside the polygon by testing if its X/Y position (a point) is inside the polygon. This should be left off unless necessary, since like our previous example it requires going through all the vertices of the polygon again, slowing down your program.</p>
 
-<pre><code>boolean inside = polygonPoint(vertices, rx,ry);
+<pre>boolean inside = polygonPoint(vertices, rx,ry);
 if (inside) return true;
-</code></pre>
+</pre>
 
 <p>Here's a full example:</p>
 
-<pre><code>float sx = 0;    // a square, controlled by the mouse
+<pre>float sx = 0;    // a square, controlled by the mouse
 float sy = 0;
 float sw = 30;   // width and height
 float sh = 30;
@@ -163,6 +163,6 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
   }
   return collision;
 }
-</code></pre>
+</pre>
 
 <?php include('includes/footer.php'); ?>

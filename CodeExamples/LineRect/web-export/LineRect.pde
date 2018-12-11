@@ -10,16 +10,18 @@ float y1 = 0;
 float x2 = 20;     // static point
 float y2 = 20;
 
-float sx = 200;    // square position
-float sy = 100;
+float sx, sy;      // square position
 float sw = 200;    // and size
 float sh = 200;
 
 
 void setup() {
-  size(600, 400);
+  size($("#wrapper").width(), 400);
 
   strokeWeight(5);  // make the line easier to see
+
+  sx = width/2-sw/2;
+  sy = height/2-sh/2;
 }
 
 

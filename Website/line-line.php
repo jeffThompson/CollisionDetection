@@ -6,28 +6,28 @@
 
 <p>To check if two lines are touching, we have to calculate the distance to the point of intersection:</p>
 
-<pre><code>float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+<pre>float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
 float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
-</code></pre>
+</pre>
 
 <p>If there is a collision, <code>uA</code> and <code>uB</code> should both be in the range of 0-1. We test for that like this:</p>
 
-<pre><code>if (uA &gt;= 0 &amp;&amp; uA &lt;= 1 &amp;&amp; uB &gt;= 0 &amp;&amp; uB &lt;= 1) {
+<pre>if (uA &gt;= 0 &amp;&amp; uA &lt;= 1 &amp;&amp; uB &gt;= 0 &amp;&amp; uB &lt;= 1) {
     return true;
 }
 return false;
-</code></pre>
+</pre>
 
 <p>That's it! We can add one more feature, if desired, that will tell us the intersection point of the two lines. This might be useful if, for example, you're making a sword-fighting game and want <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/SwordSparks">sparks to fly where the two blades hit</a>.</p>
 
-<pre><code>float intersectionX = x1 + (uA * (x2-x1));
+<pre>float intersectionX = x1 + (uA * (x2-x1));
 float intersectionY = y1 + (uA * (y2-y1));
-</code></pre>
+</pre>
 
 <p>Here's the full example:</p>
 
-<pre><code>float x1 = 0;    // line controlled by mouse
+<pre>float x1 = 0;    // line controlled by mouse
 float y1 = 0;
 float x2 = 10;   // fixed end
 float y2 = 10;
@@ -86,7 +86,7 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <p>Based on a tutorial by <a href="http://paulbourke.net/geometry/pointlineplane">Paul Bourke</a>, who includes code to test if the lines are parallel and <a href="http://mathworld.wolfram.com/CoincidentLines.html">coincident</a>. Also based on <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=geometry2">this post by Ibackstrom</a> and help from <a href="http://www.reddit.com/r/math/comments/36dt75/what_does_this_equation_solve_for/crd5mcc">Reddit</a>.</p>
 

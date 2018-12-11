@@ -10,27 +10,27 @@
 
 <p>To get the area, we use <a href="http://en.wikipedia.org/wiki/Heron%27s_formula">Heron's Forumula</a>:</p>
 
-<pre><code>float areaOrig = abs( (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1) );
-</code></pre>
+<pre>float areaOrig = abs( (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1) );
+</pre>
 
 <p>We need to calculate the area of the three triangles made from the point as well:</p>
 
-<pre><code>float area1 =    abs( (x1-px)*(y2-py) - (x2-px)*(y1-py) );
+<pre>float area1 =    abs( (x1-px)*(y2-py) - (x2-px)*(y1-py) );
 float area2 =    abs( (x2-px)*(y3-py) - (x3-px)*(y2-py) );
 float area3 =    abs( (x3-px)*(y1-py) - (x1-px)*(y3-py) );
-</code></pre>
+</pre>
 
 <p>If we add the three areas together and they equal the original, we know we're inside the triangle! Using this, we can test for collision:</p>
 
-<pre><code>if (area1 + area2 + area3 == areaOrig) {
+<pre>if (area1 + area2 + area3 == areaOrig) {
   return true;
 }
 return false;
-</code></pre>
+</pre>
 
 <p>Here's a full example:</p>
 
-<pre><code>float px = 0;        // point (set by mouse)
+<pre>float px = 0;        // point (set by mouse)
 float py = 0;
 
 float x1 = 300;      // three points of the triangle
@@ -89,7 +89,7 @@ boolean triPoint(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <p>This example was built on a modified version of a post on <a href="http://gmc.yoyogames.com/index.php?showtopic=106307">YoYo Games</a>. If you would like to read a lengthy discussion on the merits and problems with this method, and many other suggestions, see <a href="http://www.gamedev.net/topic/295943-is-this-a-better-point-in-triangle-test-2d/">this thread on GameDev.net</a>.</p>
 

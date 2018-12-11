@@ -6,8 +6,8 @@
 
 <p>For example, the left edge of the square starts at <code>(rx,ry)</code> and extends down to <code>ry+rh</code>. We can treat that as a line, using the algorithm we made in the last section:</p>
 
-<pre><code>boolean left =   lineLine(x1,y1,x2,y2, rx,ry, rx,ry+rh);
-</code></pre>
+<pre>boolean left =   lineLine(x1,y1,x2,y2, rx,ry, rx,ry+rh);
+</pre>
 
 <p>This can be more easily visualized like this:</p>
 
@@ -15,23 +15,23 @@
 
 <p>We do the same for the other three sides:</p>
 
-<pre><code>boolean left =   lineLine(x1,y1,x2,y2, rx,ry,rx, ry+rh);
+<pre>boolean left =   lineLine(x1,y1,x2,y2, rx,ry,rx, ry+rh);
 boolean right =  lineLine(x1,y1,x2,y2, rx+rw,ry, rx+rw,ry+rh);
 boolean top =    lineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry);
 boolean bottom = lineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh);
-</code></pre>
+</pre>
 
 <p>If <em>any</em> of the above statements are true, the line has hit the rectangle.</p>
 
-<pre><code>if (left || right || top || bottom) {
+<pre>if (left || right || top || bottom) {
     return true;
 }
 return false;
-</code></pre>
+</pre>
 
 <p>A full example is below. Note that the red dots are drawn in the <a href="line-line.php">Line/Line</a> function, showing where the line intersects the rectangle. You can delete them from the function if you don't want them in your finished project.</p>
 
-<pre><code>float x1 = 0;      // points for line (controlled by mouse)
+<pre>float x1 = 0;      // points for line (controlled by mouse)
 float y1 = 0;
 float x2 = 0;      // static point
 float y2 = 0;
@@ -110,12 +110,12 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <p>This algorithm can also be used to test <a href="http://en.wikipedia.org/wiki/Line_of_sight_%28gaming%29">line-of-sight</a>. Let's say you have two objects and a rectangular obstacle: if you draw a line between one object and another, then check if it has hit the rectangle, you can tell if the objects can "see" each other or if they are hidden behind the obstacle.</p>
 
 <p><img src="images/line-of-sight.jpg" alt="An example of line of sight" title=""></p>
 
-<p>For an example of this in code, see the <a href="https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/InteractionAndGames/LineOfSight/LineOfSight.pde">"Line Of Sight" example</a> in my <a href="https://github.com/jeffThompson/ProcessingTeachingSketches">Processing teaching repository</a>.</p>
+<p>For an example of this in code, see the <a href="https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/InteractionAndGames/LineOfSight/LineOfSight.pde"><em>Line Of Sight</em> example</a> in my <a href="https://github.com/jeffThompson/ProcessingTeachingSketches">Processing teaching repository</a>.</p>
 
 <?php include('includes/footer.php'); ?>

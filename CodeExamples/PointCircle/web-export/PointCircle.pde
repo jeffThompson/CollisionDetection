@@ -8,16 +8,18 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 float px =     0;      // point position
 float py =     0;
 
-float cx =     300;    // circle center position
-float cy =     200;
+float cx, cy;          // circle center position
 float radius = 100;    // circle's radius
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noCursor();
   
-  strokeWeight(5);   // thicker stroke so points are easier to see
+  strokeWeight(15);   // thicker stroke so points are easier to see
+
+  cx = width/2;
+  cy = height/2;
 }
 
 

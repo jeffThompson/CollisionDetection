@@ -6,7 +6,7 @@
 
 <p>In this example, we make a nice regular polygon with 16 sides (a <a href="http://en.wikipedia.org/wiki/Hexadecagon">hexadecagon</a>). The points are stored in an array of PVectors again:</p>
 
-<pre><code>PVector[] vertices = new PVector[16];
+<pre>PVector[] vertices = new PVector[16];
 
 // generate a nice, even polygon
 float angle = TWO_PI / vertices.length;
@@ -16,11 +16,11 @@ for (int i=0; i&lt;vertices.length; i++) {
   float y = 200 + sin(a) * 100;
   vertices[i] = new PVector(x,y);
 }
-</code></pre>
+</pre>
 
 <p>We do the same for loop that walks through the vertices and gets the current point, as well as the point one step ahead in the array.</p>
 
-<pre><code>int next = 0;
+<pre>int next = 0;
 for (int current=0; current&lt;vertices.length; current++) {
 
     // get next vertex in list
@@ -28,27 +28,27 @@ for (int current=0; current&lt;vertices.length; current++) {
     next = current+1;
     if (next == vertices.length) next = 0;
 }
-</code></pre>
+</pre>
 
 <p>Now we can get the X/Y coordinates of those two points, which form a line:</p>
 
-<pre><code>float x3 = vertices[current].x;
+<pre>float x3 = vertices[current].x;
 float y3 = vertices[current].y;
 float x4 = vertices[next].x;
 float y4 = vertices[next].y;
-</code></pre>
+</pre>
 
 <p>And we can pass that to a <a href="line-line.php">Line/Line</a> collision. If any of the lines hit, we can immediately send back <code>true</code>. This saves processing, since we can skip computing the remaining sides. If we get to the end and haven't had a hit, we return <code>false</code>.</p>
 
-<pre><code>boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
+<pre>boolean hit = lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
 if (hit) {
   return true;
 }
-</code></pre>
+</pre>
 
 <p>Here's a full example:</p>
 
-<pre><code>float x1 = 0;    // line position (set by mouse)
+<pre>float x1 = 0;    // line position (set by mouse)
 float y1 = 0;
 float x2 = 20;   // fixed end
 float y2 = 20;
@@ -150,6 +150,6 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <?php include('includes/footer.php'); ?>

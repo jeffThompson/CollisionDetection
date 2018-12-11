@@ -6,20 +6,20 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 */
 
 // array of PVectors for each shape
-PVector[] pentagon = new PVector[5];
+PVector[] pentagon =   new PVector[5];
 PVector[] randomPoly = new PVector[8];
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noStroke();
   
   // set position of the pentagon's vertices
   float angle = TWO_PI / pentagon.length;
   for (int i=0; i<pentagon.length; i++) {
     float a = angle * i;
-    float x = 300 + cos(a) * 100;
-    float y = 200 + sin(a) * 100;
+    float x = width/2 + cos(a) * 100;
+    float y = width/2 + sin(a) * 100;
     pentagon[i] = new PVector(x,y);
   }
   

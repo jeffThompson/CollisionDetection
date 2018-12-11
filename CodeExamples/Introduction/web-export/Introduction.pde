@@ -10,7 +10,7 @@ int numEach = 50;
 // circle, controlled by the mouse
 float cx = 0;
 float cy = 0;
-float cr =  30;
+float cr = 30;
 
 // lots of other objects!
 ArrayList<Circle> circles = new ArrayList<Circle>();
@@ -20,7 +20,7 @@ ArrayList<Line> lines = new ArrayList<Line>();
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   
   // make some cirlces
   for (int i=0; i<numEach; i++) {

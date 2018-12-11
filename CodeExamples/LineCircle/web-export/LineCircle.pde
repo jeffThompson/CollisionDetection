@@ -8,20 +8,22 @@ LINE/CIRCLE
  
  */
 
-float cx = 0;      // circle position (set by mouse)
+float cx = 0;         // circle position (set by mouse)
 float cy = 0;
-float r =  30;     // circle radius
+float r =  30;        // circle radius
 
-float x1 = 100;    // coordinates of line
-float y1 = 300;
-float x2 = 500;
-float y2 = 100;
+float x1,y1, x2,y2;   // coordinates of line
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   
-  strokeWeight(5);    // make it a little easier to see the line
+  strokeWeight(15);    // make it a little easier to see the line
+
+  x1 = 100;
+  y1 = height-100;
+  x2 = width-100;
+  y2 = 100;
 }
 
 

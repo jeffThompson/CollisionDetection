@@ -12,15 +12,17 @@ float cx = 0;      // circle position (set with mouse)
 float cy = 0;
 float r = 30;      // circle radius
 
-float sx = 200;    // square position
-float sy = 100;
+float sx, sy;      // square position
 float sw = 200;    // and dimensions
 float sh = 200;
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noStroke();
+
+  sx = width/2-sw/2;
+  sy = height/2-sh/2;
 }
 
 

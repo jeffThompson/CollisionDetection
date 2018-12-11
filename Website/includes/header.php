@@ -3,6 +3,7 @@
 <head>
 
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="icon" type="image/png" href="http://www.jeffreythompson.org/graphics/favicon.png">
 	<title>Collision Detection</title>
 
@@ -70,7 +71,7 @@
 		}
 
 		// $sketch_path = 'pde/';
-		$sketch_path = 'CodeExamples/' . $sketch_name . '/web-export/';
+		$sketch_path = 'code/' . $sketch_name . '/web-export/' . $sketch_name . '.pde';
 	?>
 
 	<!-- FONTS AND CSS -->
@@ -97,9 +98,13 @@
 	<!-- add code class, hover text, etc -->
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script>
-		$(document).ready(function() {
-			$('pre').addClass('prettyprint');
 
+		$(document).ready(function() {
+
+			// prettyprint the code, pls
+			$('pre').addClass('prettyprint lang-java');
+
+			// add word-breaks to anything with a / or - in it
 			$('h1').each(function() {
 				var t = $(this).text();
 				t = t.replace('/', '/<wbr>');
@@ -107,23 +112,61 @@
 				$(this).html(t);
 			});
 
-			$('#prev a').hover(
-				function() {
-					$('#title a').text('Prev: <?php echo $prev_onscreen; ?>');
-				},
-				function() {
-					$('#title a').text('Collision Detection');
-				}
-			);
-			$('#next a').hover(
-				function() {
-					$('#title a').text('Next: <?php echo $next_onscreen; ?>');
-				},
-				function() {
-					$('#title a').text('Collision Detection');
-				}
-			);
+			// set formatting
+			resizeCommands();
 		});
+
+		// when the window gets resized, do some stuff to keep everything
+		// looking pretty
+		$(window).resize( function() {
+			resizeCommands();
+		});
+
+		// things to do when the page is loaded or window resized
+		function resizeCommands() {
+			// large-screen stuff...
+			if ($(window).width() > 600) {
+
+				// long headline on intro page
+				$('#introHeadline').html('INTRODUCTION');
+
+				// menu hover stuff on larger screens
+				// (does weird formatting on larger screens)
+				// hover over title to show "Table of Contents"
+				$('#title a').hover(
+					function() {
+						$('#title a').text('Table of Contents');
+					},
+					function() {
+						$('#title a').text('Collision Detection');	// set back when moving out
+					}
+				);
+
+				// set prev/next titles
+				$('#prev a').hover(
+					function() {
+						$('#title a').text('Prev: <?php echo $prev_onscreen; ?>');
+					},
+					function() {
+						$('#title a').text('Collision Detection');
+					}
+				);
+				$('#next a').hover(
+					function() {
+						$('#title a').text('Next: <?php echo $next_onscreen; ?>');
+					},
+					function() {
+						$('#title a').text('Collision Detection');
+					}
+				);
+			}
+
+			// small-screen stuff
+			else {
+				// short headline on intro page
+				$('#introHeadline').html('INTRO');
+			}
+		}
 	</script>
 
 	<!-- ANALYTICS -->
@@ -178,7 +221,7 @@
 			# show interactive example for specific pages only
 			$no_example = array('license', 'table_of_contents', 'what_you_should_already_know', 'where_are_the_other_triangle_examples', 'thanks');
 			if (strpos($filename, 'challenges') === false && in_array($filename, $no_example) === false) {
-				echo '<canvas id="' . $sketch_name . '" data-processing-sources="' . $sketch_path . $sketch_name . '.pde" width="600" height="400">';
+				echo '<canvas id="' . $sketch_name . '" data-processing-sources="' . $sketch_path . '">';
 				echo '<p style="text-align:center">[ your browser does not support the canvas tag ]</p>';
 				echo '</canvas>';
 			}

@@ -10,15 +10,17 @@ float s1y = 0;
 float s1w = 30;     // and dimensions
 float s1h = 30;
 
-float s2x = 200;    // same for second square
-float s2y = 100;
+float s2x, s2y;     // same for second square
 float s2w = 200;
 float s2h = 200;
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noStroke();
+
+  s2x = width/2-s2w/2;
+  s2y = height/2-s2h/2;
 }
 
 

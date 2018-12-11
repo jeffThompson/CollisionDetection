@@ -6,15 +6,15 @@
 
 <p>To test if a circle has collided with a polygon, we can simplify the problem to a series of <a href="line-circle.php">Line/Circle</a> collisions, one for each side of the polygon. Since we've already covered the steps to go through the vertices as lines, and <a href="line-circle.php">Line/Circle</a> collisions, let's just look at the test for each side:</p>
 
-<pre><code>boolean collision = lineCircle(vc.x,vc.y, vn.x,vn.y, cx,cy,r);
+<pre>boolean collision = lineCircle(vc.x,vc.y, vn.x,vn.y, cx,cy,r);
 if (collision) return true;
-</code></pre>
+</pre>
 
 <p>Cool! We can build on previous code this way, allowing flexible, complex code to emerge from simpler pieces.</p>
 
 <p>Here's the full example:</p>
 
-<pre><code>float cx = 0;    // position of the circle
+<pre>float cx = 0;    // position of the circle
 float cy = 0;
 float r =  30;   // circle's radius
 
@@ -217,19 +217,19 @@ boolean polygonPoint(PVector[] vertices, float px, float py) {
   }
   return collision;
 }
-</code></pre>
+</pre>
 
 <p>Since <code>polyCircle()</code> calls <code>lineCircle()</code> which calls <code>linePoint()</code>, we could combine these into a single function, but the idea of functions in programming is reusability. Now, if we update <code>linePoint()</code>, it carries through all our projects.</p>
 
-<p>But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These situations are called "edge cases", ones that require a different set of parameters to check for. </p>
+<p>But! We have a bit of a problem. Try moving the circle so it's completely inside the polygon. No more collision! These situations are called <em>edge cases</em>, ones that require a different set of parameters to check for. </p>
 
 <p>In most situations, we don't need to know if the circle is inside: imagine the polygon is a spaceship and the circle is an asteroid. As soon as the asteroid touches the ship, we'd register the collision and do something (like blow up the ship).</p>
 
 <p>If you do need to know if the circle is inside the polygon, you can add two more lines to the <code>polyCircle()</code> function (right before the final <code>return false;</code>) to test if the center of the circle is inside the polygon:</p>
 
-<pre><code>boolean centerInside = polygonPoint(cx,cy, vertices);
+<pre>boolean centerInside = polygonPoint(cx,cy, vertices);
 if (centerInside) return true;
-</code></pre>
+</pre>
 
 <p>We do this after we test the edges, since those are more likely to be hit first. Unless you need this functionality, leave it out. It requires running through all the vertices of the polygon again, which will slow down your program.</p>
 

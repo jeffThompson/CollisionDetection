@@ -15,14 +15,14 @@ PVector[] vertices = new PVector[4];
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   noStroke();
   
   // set position of the vertices (here a parallelogram)
-  vertices[0] = new PVector(100,100);
-  vertices[1] = new PVector(400,100);
-  vertices[2] = new PVector(500,300);
-  vertices[3] = new PVector(200,300);
+  vertices[0] = new PVector(width/2-100, height/2-100);
+  vertices[1] = new PVector(width/2+100, height/2-100);
+  vertices[2] = new PVector(width/2+50,  height/2+100);
+  vertices[3] = new PVector(width/2-50,  height/2+100);
 }
 
 

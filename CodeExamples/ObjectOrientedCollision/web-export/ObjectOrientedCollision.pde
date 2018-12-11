@@ -13,7 +13,7 @@ Rectangle[] rects = new Rectangle[8];
 
 
 void setup() {
-  size(600,400);
+  size($("#wrapper").width(), 400);
   
   // create a new Circle with 30px radius
   circle = new Circle(0,0, 30);

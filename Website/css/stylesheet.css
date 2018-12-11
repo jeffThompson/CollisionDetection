@@ -20,7 +20,7 @@ html, body {
 
 	/* fonts */
 	font-family: 		'Lora', serif;
-	font-size: 			16px;
+	font-size: 			24px;
 	color: 				black;
 }
 
@@ -28,26 +28,26 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 		'Raleway', 'Helvetica', 'Arial', sans-serif;
 	font-weight: 		600;
+	text-align: 		center;
 }
 h1 {
-	font-size: 			4em;
+	font-size: 			2em;
 	line-height:		1.15em;
 	margin:				0em 0 0.2em 0;
 	text-align:			center;
 }
 h2 {
-	font-size: 			2.0em;
+	font-size: 			1.6em;
 	line-height:		1.15em;
 	margin-top:			1.1em;
 	margin-bottom: 		0.3em;
 }
 h3 {
-	font-size: 			1.5em;
+	font-size: 			1.3em;
 	margin:				1.5em 0 0.3em 0;
 }
 h4 {
-	font-size:			1.5em;
-	text-align:			center;
+	font-size:			1.3em;
 }
 img + h4 {
 	margin-top:			1.3em;
@@ -61,7 +61,7 @@ sup {
 
 /* PARAGRAPHS */
 p, figcaption {
-	font-size:			19px;
+	font-size:			1em;
 	line-height:  		1.4em;
 	padding-bottom:		1.5em;
 }
@@ -83,7 +83,7 @@ figcaption {
 
 /* LISTS */
 ul, ol {
-	font-size: 			19px;
+	font-size: 			1em;
 	line-height:		1.4em;
 }
 ul {
@@ -106,8 +106,8 @@ ol {
 	margin-left: 		1em;
 }
 ol li {
-	padding-left:		1.3em;
-	margin-bottom:		1.3em;
+	padding-left:		0.3em;
+	margin-bottom:		0.3em;
 }
 
 /* LINKS */
@@ -121,7 +121,7 @@ a:active, a:hover {
 	color:				black;
 	background-color:	rgb(255,255,0);
 }
-a:hover .fa {
+a:hover .fa, .license a:hover {
 	color: 				rgb(255,150,0);
 	background-color:	transparent !important;
 }
@@ -147,20 +147,16 @@ pre, code, .prettyprint {
 
 /* large code blocks */
 .prettyprint {
-	font-size:			1.2em;
+	font-size:			0.8em;
 	background: 		rgb(245,245,245);
 	border: 			1px solid rgb(200,200,200) !important;
 	padding: 			1.2em !important;
 	margin-bottom: 		2em;
-
-	/*max-height: 		300px;
-	overflow: 			scroll;*/
 }
 
 /* inline code */
 code {
 	background: 		rgb(245,245,245);
-	/*padding: 			0.2em 0.4em 0.2em 0.4em;*/
 	padding: 			0.2em 0;
 	font-size: 			85%;
 	color:				rgb(70,70,70);
@@ -181,8 +177,9 @@ img {
 
 /* LAYOUT ELEMENTS */
 #wrapper {
-	width:				600px;
-	margin: 			4em auto 60px auto;
+	width:				100%;
+	padding: 			1em;
+	margin-top: 		-1em;
 }
 
 #tableOfContents {
@@ -212,13 +209,10 @@ img {
 
 /* HEADER */
 header {
-	position: 			fixed;
-	width: 				602px;
-	height: 			3.5em;
-	top: 				0;
+	position: 			relative;
+	width: 				100%;
 	margin: 			0 auto 0 auto;
 	padding: 			1em 0.5em 0 0.5em;
-	background: 		rgba(255,255,255, 0.9);
 }
 #prev {
 	width: 				10%;
@@ -238,19 +232,48 @@ header {
 	clear: 				both;
 }
 
+/* next page link in footer */
+.nextPage {
+	text-align: 		center;
+	background-color: 	rgba(245,245,245, 1);
+	border: 		  	1px solid rgb(200,200,200);
+	padding: 			1em;
+	margin: 			1.6em 0 1.3em 0;
+	text-align: 		center;
+}
+.nextPage:hover {
+	background-color: 	rgba(255,255,0, 1);
+}
+
 
 /* FOOTER */
 footer {
 	margin:				30px 0 60px 0;
 	text-align:			center;
 }
-
+#license {
+	width:				88px; 
+	height: 			31px;
+	border: 			none;
+}
 
 /* INTERACTIVE DEMO */
 canvas {
 	display:			block;
+	width: 				100%;
+
 	border:				1px solid rgb(200,200,200);
 	margin-bottom:		1.5em;
+}
+
+
+/* UPDATE CALLOUT BOX */
+.callout {
+	background-color: 	rgba(0,150,255, 0.15);
+	border: 		  	1px solid rgb(200,200,200);
+	padding: 			1em;
+	margin-bottom: 		1.3em;
+	text-align: 		center;
 }
 
 
@@ -258,4 +281,51 @@ canvas {
 .clear {
 	clear: both;
 }
+
+
+/* SMALL SCREENS */
+@media only screen and (min-width: 600px) {
+	#wrapper {
+		width:			600px;
+		font-size: 		19px;
+		margin: 		4em auto 60px auto;
+		padding: 		0;
+	}
+
+	/* slightly larger headline font */
+	h1 {
+		font-size: 		4em;
+	}
+	h2 {
+		font-size: 		2em;
+	}
+	h3 {
+		font-size: 		1.8em;
+	}
+
+	.prettyprint {
+		font-size: 		1em;
+	}
+
+	ol li {
+		padding-left:	1.3em;
+		margin-bottom:	1.3em;
+	}
+
+	header {
+		font-size: 		1em;
+		position: 		fixed;
+		width: 			600px;
+		height: 		3.5em;
+		top: 			0;
+		margin: 		0 auto 0 auto;
+		padding: 		1em 0.5em 0 0.5em;
+		background: 	rgba(255,255,255, 0.9);
+	}
+}
+
+
+
+
+
 

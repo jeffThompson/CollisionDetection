@@ -8,7 +8,7 @@
 
 <p>Here's the full example:</p>
 
-<pre><code>// array of PVectors for each shape
+<pre>// array of PVectors for each shape
 PVector[] pentagon = new PVector[5];
 PVector[] randomPoly = new PVector[8];
 
@@ -184,6 +184,6 @@ boolean polyPoint(PVector[] vertices, float px, float py) {
   }
   return collision;
 }
-</code></pre>
+</pre>
 
 <?php include('includes/footer.php'); ?>

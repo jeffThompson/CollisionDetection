@@ -6,50 +6,50 @@
 
 <p>Our code will first test which edge of the rectangle is closest to the circle, then see if there is a collision using the Pythagorean Theorem. Let's create a temporary variable for the square's closest X/Y edges. We'll set them as the circle's position to start:</p>
 
-<pre><code>float testX = cx;
+<pre>float testX = cx;
 float testY = cy;
-</code></pre>
+</pre>
 
 <p>Then we do the following tests:</p>
 
-<pre><code>If the circle is to the RIGHT of the square, check against the RIGHT edge.
+<pre>If the circle is to the RIGHT of the square, check against the RIGHT edge.
 
 If the circle is to the LEFT of the square, check against the LEFT edge.
 
 If the circle is ABOVE the square, check against the TOP edge.
 
 If the circle is to the BELOW the square, check against the BOTTOM edge.
-</code></pre>
+</pre>
 
 <p>Here's how that works as an if statement:</p>
 
-<pre><code>if (cx &lt; rx)         testX = rx;        // left edge
+<pre>if (cx &lt; rx)         testX = rx;        // left edge
 else if (cx &gt; rx+rw) testX = rx+rw;     // right edge
 
 if (cy &lt; ry)         testY = ry;        // top edge
 else if (cy &gt; ry+rh) testY = ry+rh;     // bottom edge
-</code></pre>
+</pre>
 
 <p>Notice the slightly different <code>if/else</code> layout. You don't need the curly brackets if your statement is all on one line. This can tidy things up, but be careful you're not saving space at the expense of readable code!</p>
 
 <p>Now that we know which edges to check, we run the Pythagorean Theorem code using the circle's center and the two edges we found above:</p>
 
-<pre><code>float distX = cx-testX;
+<pre>float distX = cx-testX;
 float distY = cy-testY;
 float distance = sqrt( (distX*distX) + (distY*distY) );
-</code></pre>
+</pre>
 
 <p>Finally, we compare this distance to the circle's radius:</p>
 
-<pre><code>if (distance &lt;= radius) {
+<pre>if (distance &lt;= radius) {
     return true;
 }
 return false;
-</code></pre>
+</pre>
 
 <p>Here's a full example:</p>
 
-<pre><code>float cx = 0;      // circle position (set with mouse)
+<pre>float cx = 0;      // circle position (set with mouse)
 float cy = 0;
 float r = 30;      // circle radius
 
@@ -113,7 +113,7 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <p>This example is built on code by <a href="http://vband3d.tripod.com/visualbasic/tut_mixedcollisions.htm">Matt Worden</a> (thanks!).</p>
 

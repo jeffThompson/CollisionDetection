@@ -6,22 +6,22 @@
 
 <p>First, calculate the distance between the two circle's centers:</p>
 
-<pre><code>float distX = c1x - c2x;
+<pre>float distX = c1x - c2x;
 float distY = c1y - c2y;
 float distance = sqrt( (distX*distX) + (distY*distY) );
-</code></pre>
+</pre>
 
 <p>To check if they are colliding, we see if the distance between them is less than the sum of their radii.</p>
 
-<pre><code>if (distance &lt;= c1r+c2r) {
+<pre>if (distance &lt;= c1r+c2r) {
     return true;
 }
 return false;
-</code></pre>
+</pre>
 
 <p>Built into a full example, it looks like this:</p>
 
-<pre><code>float c1x = 0;      // circle 1 position
+<pre>float c1x = 0;      // circle 1 position
 float c1y = 0;      // (controlled by mouse)
 float c1r = 30;     // radius
 
@@ -76,7 +76,7 @@ boolean circleCircle(float c1x, float c1y, float c1r, float c2x, float c2y, floa
   }
   return false;
 }
-</code></pre>
+</pre>
 
 <p><strong>Circle/Circle</strong> collision can be used to create "bounding circles" around more complex objects. While sacrificing accuracy, this kind of collision detection is very fast and can be a good approximation.</p>
 

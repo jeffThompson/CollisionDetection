@@ -2,15 +2,15 @@
 
 <figcaption>Refresh your browser for random squares!</figcaption>
 
-<h1>MOVING TO OBJECT-ORIENTED COLLISION</h1>
+<h1 style="font-size:2.5em">MOVING TO OBJECT-ORIENTED COLLISION</h1>
 
-<p>Congrats! You've made it through a <em>lot</em> of collision-detection code. But these examples are meant as simple demonstrations of how the algorithms work. Combining them into bigger projects probably means moving your code to an object-oriented approach. (For an excellent introduction to object-oriented programming, see Daniel Shiffman's book <a href="http://natureofcode.com/book/">"Nature Of Code"</a>.)</p>
+<p>Congrats! You've made it through a <em>lot</em> of collision-detection code. But these examples are meant as simple demonstrations of how the algorithms work. Combining them into bigger projects probably means moving your code to an object-oriented approach. (For an excellent introduction to object-oriented programming, see Daniel Shiffman's book <a href="http://natureofcode.com/book/"><em>Nature Of Code</em></a>.)</p>
 
 <p>Why? Let's say we have a circle and a bunch of rectangles (like above). We could store separate positions, sizes, and collisions for each, but that would quickly get messy. Instead, a <code>Circle</code> and <code>Rectangle</code> class will give our code a lot more power and flexibility.</p>
 
-<p>Let's start with our Circle class:</p>
+<p>Let's start with our <code>Circle</code> class:</p>
 
-<pre><code>class Circle {
+<pre>class Circle {
   float x, y;    // position
   float r;       // radius
 
@@ -33,11 +33,11 @@
     ellipse(x,y, r*2, r*2);
   }
 }
-</code></pre>
+</pre>
 
-<p>Pretty straightforward. We can also make a basic Rectangle class:</p>
+<p>Pretty straightforward. We can also make a basic <code>Rectangle</code> class:</p>
 
-<pre><code>class Rectangle {
+<pre>class Rectangle {
   float x, y;            // position
   float w, h;            // size
   boolean hit = false;   // is it hit?
@@ -58,13 +58,13 @@
     rect(x,y, w,h);
   }
 }
-</code></pre>
+</pre>
 
-<p>Notice we have a variable for the Rectangle called <code>hit</code>. This way we can keep track of whether or not the circle has hit a particular rectangle and change its fill color accordingly. By default, the value is set to <code>false</code>.</p>
+<p>Notice we have a variable for the <code>Rectangle</code> called <code>hit</code>. This way we can keep track of whether or not the circle has hit a particular rectangle and change its fill color accordingly. By default, the value is set to <code>false</code>.</p>
 
 <p>We have just one <code>Circle</code>, but we create an <code>ArrayList</code> of <code>Rectangle</code> objects. To run everything, here's what our main <code>draw()</code> loop looks like:</p>
 
-<pre><code>void draw() {
+<pre>void draw() {
   background(255);
 
   // go through all rectangles
@@ -77,26 +77,26 @@
   circle.update();
   circle.display();
 }
-</code></pre>
+</pre>
 
-<p>So how do we test if the circle has hit something? Let's create a <em>method</em> (an internal function) of the Rectangle class called <code>checkCollision()</code>. We'll pass the <code>Circle</code> object as an argument, then do a basic <a href="circle-rect.php">Circle/Rectangle</a> collision test.</p>
+<p>So how do we test if the circle has hit something? Let's create a <em>method</em> (an internal function) of the <code>Rectangle</code> class called <code>checkCollision()</code>. We'll pass the <code>Circle</code> object as an argument, then do a basic <a href="circle-rect.php">Circle/Rectangle</a> collision test.</p>
 
-<pre><code>void checkCollision(Circle c) {
+<pre>void checkCollision(Circle c) {
   hit = circleRect(c.x,c.y,c.r, x,y,w,h);
 }
-</code></pre>
+</pre>
 
 <p>The result of <code>circleRect()</code> sets <code>hit</code> to be <code>true</code> or <code>false</code>, which in turn changes the fill color. Now we just add the test to the <code>draw()</code> loop:</p>
 
-<pre><code>for (Rectangle r : rects) {
+<pre>for (Rectangle r : rects) {
   r.checkCollision(circle);  // check for collision
   r.display();               // and draw
 }
-</code></pre>
+</pre>
 
 <p>Pretty cool! Here's the full code:</p>
 
-<pre><code>// a single Circle object, controlled by the mouse
+<pre>// a single Circle object, controlled by the mouse
 Circle c;
 
 // a list of rectangles
@@ -212,9 +212,9 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
   }
   return false;
 }
-</code></pre>
+</pre>
 
-<p>Note that our code is a bit long with all the classes, so the actual Processing file is broken up into separate tabs. This would be a good idea for projects that require several collision functions. You could name the tab "CollisionFunctions" and keep all the code there.</p>
+<p>Note that our code is a bit long with all the classes, so the actual Processing file is broken up into separate tabs. This would be a good idea for projects that require several collision functions. You could name the tab <em>CollisionFunctions</em> and keep all the code there.</p>
 
 <p>You can see another, more complex example of object-oriented collision in the <a href="index.php">Introduction</a>. It uses a class for circles, rectangles, and lines.</p>
 
