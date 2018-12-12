@@ -146,7 +146,7 @@
 			if ($(window).width() > 600) {
 
 				// long headline on intro page
-				$('#introHeadline').html('INTRODUCTION');
+				// $('#introHeadline').html('INTRODUCTION');
 
 				// menu hover stuff on larger screens
 				// (does weird formatting on larger screens)
@@ -182,7 +182,7 @@
 			// small-screen stuff
 			else {
 				// short headline on intro page
-				$('#introHeadline').html('INTRO');
+				// $('#introHeadline').html('INTRO');
 			}
 		}
 	</script>
@@ -202,38 +202,40 @@
 
 <body>
 	<div id="wrapper">
-		<header><p>
-			<span id="prev">
-				<?php
-					if ( strcmp($prev, '') !== 0 ) {
-						echo '<a href="' . $prev . '.php">&larr;</a>';
-					}
-					else {
-						echo '&nbsp;';
-					}
-				?>
-			</span>
-
-			<?php
-				if ( strcmp($filename, 'table-of-contents') == 0 ) {
-					echo '<span id="title"><a href="index.php">Collision Detection</a></span>';
+		
+		<?php
+			if (strcmp($filename, 'index') !== 0) {
+				echo '<header><p>';
+				echo '<span id="prev">';
+				if ( strcmp($prev, '') !== 0 ) {
+					echo '<a href="' . $prev . '.php">&larr;</a>';
 				}
 				else {
-					echo '<span id="title"><a href="table_of_contents.php">Collision Detection</a></span>';
+					echo '&nbsp;';
 				}
-			?>
-			<span id="next">
-				<?php
-					if ( strcmp($next, '') !== 0 ) {
-						echo '<a href="' . $next . '.php">&rarr;</a>';
-					}
-					else {
-						echo '&nbsp;';
-					}
-				?>
-			</span>
-			<div class="clear"></div>
-		</p></header>
+				echo '</span>';
+
+				echo '<span id="title">';
+				if ( strcmp($filename, 'table-of-contents') == 0 ) {
+					echo '<a href="index.php">Collision Detection</a>';
+				}
+				else {
+					echo '<a href="table_of_contents.php">Collision Detection</a>';
+				}
+				echo '</span>';
+
+				echo '<span id="next">';
+				if ( strcmp($next, '') !== 0 ) {
+					echo '<a href="' . $next . '.php">&rarr;</a>';
+				}
+				else {
+					echo '&nbsp;';
+				}
+				echo '</span>';
+				echo '<div class="clear"></div>';
+				echo '</p></header>';
+			}
+		?>
 
 		<?php
 			# show interactive example for specific pages only

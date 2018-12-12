@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<h1 id="introHeadline">INTRO</h1>
+<h1>COLLISION DETECTION</h1>
 
 <h4>Jeff Thompson</h4>
 
@@ -9,6 +9,9 @@
 <p>This book explains the algorithms behind those collisions using basic shapes like circles, rectangles, and lines so you can implement them into your own projects.</p>
 
 <p class="callout"><strong>UPDATE!</strong> This site has been getting lots of visits which is awesome. I've made some changes so it will look better on mobile devices, make navigation easier, and tried to look over everything for mistakes. If you have any problems or suggestions, please <a href="https://github.com/jeffThompson/CollisionDetection/issues">post an issue on the project repository</a>. Thanks!</p>
+
+<p>Ready to get started? Skip ahead to the <a href="table_of_contents.php">Table of Contents...</a></p>
+<!-- <a href="table_of_contents.php"><p class="nextPage">Skip ahead to the Table of Contents</p></a> -->
 
 <h2>WHAT'S COVERED HERE?</h2>
 <p>This book covers collisions between points, circles, rectangles, lines, polygons, and triangles. These examples are meant to be as readable and easily understood as possible. There are definitely faster, more efficient ways to detect these collisions, but this book is intended to be friendly and teach the principles with minimal math.</p>
