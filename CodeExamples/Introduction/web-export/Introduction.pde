@@ -8,8 +8,7 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 int numEach = 50;
 
 // circle, controlled by the mouse
-float cx = 0;
-float cy = 0;
+float cx, cy;
 float cr = 30;
 
 // lots of other objects!
@@ -21,6 +20,9 @@ ArrayList<Line> lines = new ArrayList<Line>();
 
 void setup() {
   size($("#wrapper").width(), 400);
+
+  cx = width/2;
+  cy = height/2;
   
   // make some cirlces
   for (int i=0; i<numEach; i++) {
@@ -53,8 +55,10 @@ void draw() {
   background(255);
   
   // update main circle to mouse coordinates
-  cx = mouseX;
-  cy = mouseY;
+  if (mouseX != pmouseX && mouseY != pmouseY) {
+    cx = mouseX;
+    cy = mouseY;
+  }
   
   // draw us!
   fill(0,150);
