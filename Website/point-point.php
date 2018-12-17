@@ -24,7 +24,7 @@ else {
 }
 </pre>
 
-<p>Note the bit of shorthand above: we could specify <code>else { return true; }</code>, but our code does the same thing! Our version is a little easier to read, once you get used to it. Think of the <code>return false;</code> as the default value to be sent back, unless certain conditions are met.</p>
+<p>Note the bit of shorthand above: we could specify <code>else { return false; }</code>, but our code does the same thing! Our version is a little easier to read, once you get used to it. Think of the <code>return false;</code> as the default value to be sent back, unless certain conditions are met.</p>
 
 <p>With our very first collision detection function in hand, we can build something useful with it. Try the interactive example bumping into the other point and watch the background change color!</p>
 
