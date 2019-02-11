@@ -8,6 +8,8 @@
 
 <p>At the end, we will talk about using collision in object-oriented code. Understanding object-oriented programming will not be required to use this book, but it will be helpful for using these topics in larger projects with lots of objects hitting each other.</p>
 
+<p class="callout"><strong>Haven't used Processing before? That's ok!</strong> If you've used another programming language before it should be easy to understand these examples and port the code to the language of your choice.</p>
+
 <h2>FUNCTIONS</h2>
 
 <p>The core of the collision examples are <em>functions</em>, so you will need to be familiar with them to use this book. If you have never created a function, please read this section carefully; if you already understand this topic, you can skip ahead.</p>
