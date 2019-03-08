@@ -6,7 +6,7 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 */
 
 // a single Circle object, controlled by the mouse
-Circle c;
+Circle circle;
 
 // a list of rectangles
 Rectangle[] rects = new Rectangle[8];
