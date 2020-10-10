@@ -13,7 +13,7 @@ This book explains the algorithms behind those collisions using basic shapes lik
 #### WHAT'S COVERED HERE?
 This book covers collisions between points, circles, rectangles, lines, polygons, and triangles. These examples are meant to be as readable and easily understood as possible. There are definitely faster, more efficient ways to detect these collisions, but this book is intended to be friendly and teach the principles with minimal math.
 
-Each section include a description of the collision algorithm and an interactive example built using `processing.js`.
+Each section includes a description of the collision algorithm and an interactive example built using `processing.js`.
 
 ---
 
