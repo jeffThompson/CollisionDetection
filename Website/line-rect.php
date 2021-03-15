@@ -2,9 +2,16 @@
 
 <h1>LINE/RECTANGLE</h1>
 
-<p>We've actually already covered how to check if a line has hit a rectangle: it's really just four <a href="line-line.php">Line/Line</a> collisions, one for each side!</p>
+<p>We've actually already covered how to check if a line has hit a rectangle: it's really just two <a href="point-rect.php">Point/Rect</a> and four <a href="line-line.php">Line/Line</a> collisions, one for each side!</p>
 
-<p>For example, the left edge of the square starts at <code>(rx,ry)</code> and extends down to <code>ry+rh</code>. We can treat that as a line, using the algorithm we made in the last section:</p>
+<p>First, let's test if either of the ends of the line are inside the rectangle. This is likely to happen if the line is much smaller than the rectangle. To do this, we can use <a href="point-rect.php">Point/Rect</a> from the beginning of the book. If either end is inside, return <code>true</code> immediately and skip the rest.</p>
+
+<pre>boolean inside1 = pointRect(x1,y1, rx,ry,rw,rh);
+boolean inside2 = pointRect(x2,y2, rx,ry,rw,rh);
+if (inside1 || inside2) return true;
+</pre>
+
+<p>Next, we check for collision between the line and any edge of the square. For example, the left edge of the square starts at <code>(rx,ry)</code> and extends down to <code>ry+rh</code>. We can treat that as a line, using the algorithm we made in the last section:</p>
 
 <pre>boolean left =   lineLine(x1,y1,x2,y2, rx,ry, rx,ry+rh);
 </pre>
