@@ -4,7 +4,7 @@
 
 <p>We've actually already covered how to check if a line has hit a rectangle: it's really just two <a href="point-rect.php">Point/Rect</a> and four <a href="line-line.php">Line/Line</a> collisions, one for each side!</p>
 
-<p>First, let's test if either of the ends of the line are inside the rectangle. This is likely to happen if the line is much smaller than the rectangle. To do this, we can use <a href="point-rect.php">Point/Rect</a> from the beginning of the book. If either end is inside, return <code>true</code> immediately and skip the rest.</p>
+<p>First, let's test if either of the ends of the line are inside the square. This is likely to happen if the line is much smaller than the square. To do this, we can use <a href="point-rect.php">Point/Rect</a> from the beginning of the book. If either end is inside, return <code>true</code> immediately and skip the rest.</p>
 
 <pre>boolean inside1 = pointRect(x1,y1, rx,ry,rw,rh);
 boolean inside2 = pointRect(x2,y2, rx,ry,rw,rh);
