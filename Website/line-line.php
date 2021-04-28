@@ -19,6 +19,12 @@ float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-
 return false;
 </pre>
 
+<p>To fix parallel line problem described <a href="https://github.com/jeffThompson/CollisionDetection/issues/14">here</a>:</p>
+<pre>if (!pointLine(x1, y1, x3, y3, x4, y4) && !pointLine(x2, y2, x3, y3, x4, y4)) {
+    return true;
+}
+</pre>
+
 <p>That's it! We can add one more feature, if desired, that will tell us the intersection point of the two lines. This might be useful if, for example, you're making a sword-fighting game and want <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/SwordSparks">sparks to fly where the two blades hit</a>.</p>
 
 <pre>float intersectionX = x1 + (uA * (x2-x1));
@@ -67,6 +73,10 @@ void draw() {
 
 // LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+  // Check if first line points collides with the line 2
+  if (!pointLine(x1, y1, x3, y3, x4, y4) && !pointLine(x2, y2, x3, y3, x4, y4)) {
+    return true;
+  }
 
   // calculate the distance to intersection point
   float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
