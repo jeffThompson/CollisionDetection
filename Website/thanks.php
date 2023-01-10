@@ -20,7 +20,7 @@
 <li>Ben Fry and Casey Reas, the creators of <a href="Processing">Processing</a>, and to the great community of creative people who use the language  </li>
 <li>This book was written in <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>, made by John Gruber</li>
 <li><a href="https://github.com/google/code-prettify">Prettify.js</a> for syntax highlighting  </li>
-<li><a href="http://smartquotesjs.com">SmartQuotes.js</a> for tidying up the typography  </li>
+<li><a href="https://smartquotes.js.org/">SmartQuotes.js</a> for tidying up the typography  </li>
 <li><a href="https://jquery.com/">JQuery</a>, <a href="https://www.mamp.info">MAMP</a>, and other free and open-source development tools used to make this project  </li>
 </ul>
 
