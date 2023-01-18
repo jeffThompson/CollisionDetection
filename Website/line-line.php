@@ -19,6 +19,12 @@ float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-
 return false;
 </pre>
 
+<p>To fix parallel line problem described <a href="https://github.com/jeffThompson/CollisionDetection/issues/14">here</a>:</p>
+<pre>if (!pointLine(x1, y1, x3, y3, x4, y4) && !pointLine(x2, y2, x3, y3, x4, y4)) {
+    // ... Test above code
+}
+</pre>
+
 <p>That's it! We can add one more feature, if desired, that will tell us the intersection point of the two lines. This might be useful if, for example, you're making a sword-fighting game and want <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/SwordSparks">sparks to fly where the two blades hit</a>.</p>
 
 <pre>float intersectionX = x1 + (uA * (x2-x1));
@@ -67,24 +73,29 @@ void draw() {
 
 // LINE/LINE
 boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+  // Check if first line points collides with the line 2
+  if (!pointLine(x1, y1, x3, y3, x4, y4) && !pointLine(x2, y2, x3, y3, x4, y4)) {
+    // calculate the direction of the lines
+    float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+    float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
 
-  // calculate the distance to intersection point
-  float uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
-  float uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+    // if uA and uB are between 0-1, lines are colliding
+    if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
 
-  // if uA and uB are between 0-1, lines are colliding
-  if (uA &gt;= 0 &amp;&amp; uA &lt;= 1 &amp;&amp; uB &gt;= 0 &amp;&amp; uB &lt;= 1) {
+      // optionally, draw a circle where the lines meet
+      float intersectionX = x1 + (uA * (x2-x1));
+      float intersectionY = y1 + (uA * (y2-y1));
+      fill(255,0,0);
+      noStroke();
+      ellipse(intersectionX,intersectionY, 20,20);
 
-    // optionally, draw a circle where the lines meet
-    float intersectionX = x1 + (uA * (x2-x1));
-    float intersectionY = y1 + (uA * (y2-y1));
-    fill(255,0,0);
-    noStroke();
-    ellipse(intersectionX,intersectionY, 20,20);
-
+      return true;
+    }
+  } else {
     return true;
   }
-  return false;
+
+  return true;
 }
 </pre>
 
