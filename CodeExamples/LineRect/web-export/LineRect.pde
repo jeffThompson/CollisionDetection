@@ -48,6 +48,12 @@ void draw() {
 
 // LINE/RECTANGLE
 boolean lineRect(float x1, float y1, float x2, float y2, float rx, float ry, float rw, float rh) {
+
+  // is either end INSIDE the rectangle?
+  // if so, return true immediately
+  boolean inside1 = pointRect(x1,y1, rx,ry,rw,rh);
+  boolean inside2 = pointRect(x2,y2, rx,ry,rw,rh);
+  if (inside1 || inside2) return true;
   
   // check if the line has hit any of the rectangle's sides
   // uses the Line/Line function below
@@ -59,6 +65,20 @@ boolean lineRect(float x1, float y1, float x2, float y2, float rx, float ry, flo
   // if ANY of the above are true, the line has hit the rectangle
   if (left || right || top || bottom) {
     return true;
+  }
+  return false;
+}
+
+
+// POINT/RECTANGLE
+boolean pointRect(float px, float py, float rx, float ry, float rw, float rh) {
+    
+  // is the point inside the rectangle's bounds?
+  if (px >= rx &&        // right of the left edge AND
+      px <= rx + rw &&   // left of the right edge AND
+      py >= ry &&        // below the top AND
+      py <= ry + rh) {   // above the bottom 
+        return true;
   }
   return false;
 }
@@ -85,6 +105,5 @@ boolean lineLine(float x1, float y1, float x2, float y2, float x3, float y3, flo
   }
   return false;
 }
-
 
 
